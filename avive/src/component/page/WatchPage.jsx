@@ -1,12 +1,12 @@
 import React from "react";
-import UserInfo from "../../ui/UserInfo";
+import UserInfo from "../ui/UserInfo";
 import styled from "styled-components";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { MdSaveAlt } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import CommentListItem from "../../list/CommentListItem";
-import UserCardList from "../../list/UserCardList";
-import VideoList from "../../list/VideoList";
+import CommentListItem from "../list/CommentListItem";
+import UserCardList from "../list/UserCardList";
+import VideoList from "../list/VideoList";
 
 const Container = styled.div`
     display: grid;

@@ -1,5 +1,7 @@
 import React from 'react';
 // import Channel from './pages/Channel';
+import Header from './component/ui/Header/Header';
+
 import {
   BrowserRouter,
   Routes,
@@ -8,16 +10,14 @@ import {
 import styled from "styled-components";
 //Pages
 import ChannelPage from './component/page/ChannelPage';
+import WatchPage from './component/page/WatchPage';
 
 
 
 function App(props) {
   return (
-    // <div className="App">
-    //   {/* <h1>AVIVE</h1> */}
-    //   <Channel channelInfo={channelInfo} />
-    // </div>
     <BrowserRouter>
+    {/* <Header></Header> */}
       <Routes>
         <Route index element={<ChannelPage />} />
       </Routes>
