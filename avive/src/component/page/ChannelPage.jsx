@@ -36,7 +36,7 @@ function ChannelPage(props) {
 
     return (
         <Wrapper>   
-            <Header></Header> 
+            <Header />
             <Container>     
                 <TabBar>
                 </TabBar>
