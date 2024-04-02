@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { MdNotifications } from "react-icons/md";
 import { FaCaretDown } from "react-icons/fa";
+import WatchSubscribeButton from "./WatchSubscribeButton"
 
 
 const Styles = styled.div`
@@ -50,10 +51,11 @@ function UserInfo(props) {
                 />
                 <UserName>hhhhey!</UserName>
             </div>
-            <NotificationBox>
+            <WatchSubscribeButton/>
+            {/* <NotificationBox>
                 <MdNotifications className="icon" size="25" color="F1D900"/> 
                 <FaCaretDown size="13" color="grey"/>
-            </NotificationBox>
+            </NotificationBox> */}
         </Styles>     
     );
 }
