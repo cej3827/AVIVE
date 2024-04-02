@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CommunityItem from './CommunityItem';
 
 const CommunityListWrapper = styled.div`
-  max-width: 600px;
+  // max-width: 600px;
 //   margin: 0 auto;
 `;
 

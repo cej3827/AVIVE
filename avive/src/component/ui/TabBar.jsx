@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import HomeTabContent from './HomeTabContent';
 import CommunityList from '../list/CommunityList';
+import VideoTabContent from './VideoTabContent';
+import PlaylistList from '../list/PlaylistList';
+
 
 const communities = [
   { 
@@ -23,6 +26,13 @@ const communities = [
     content: 'Content of Community 3' 
   },
 ];
+
+// const playlists = [
+//   { id: 1, title: 'Playlist 1', thumbnail: 'playlist1.jpg' },
+//   { id: 2, title: 'Playlist 2', thumbnail: 'playlist2.jpg' },
+//   { id: 3, title: 'Playlist 3', thumbnail: 'playlist3.jpg' },
+// ];
+
 
 
 const TabBarContainer = styled.div`
@@ -79,9 +89,6 @@ const HorizontalLine = styled.div`
 
 `;
 
-const VideoTabContent = () => <div>비디오</div>
-const PlaylistTabContent = () => <div>재생목록</div>;
-const CommunityTabContent = () => <CommunityList communities={communities} />;
 
 const TabBar = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -110,8 +117,8 @@ const TabBar = () => {
       <ContentContainer>
         {activeTab === 'home' && <HomeTabContent />}
         {activeTab === 'video' && <VideoTabContent />}
-        {activeTab === 'playlist' && <PlaylistTabContent />}
-        {activeTab === 'community' && <CommunityTabContent />}
+        {activeTab === 'playlist' && <PlaylistList communities={communities} />}
+        {activeTab === 'community' && <CommunityList communities={communities} />}
       </ContentContainer>
     </div>
   );
