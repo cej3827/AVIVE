@@ -5,7 +5,7 @@ import List from "../list/CommunityList";
 import ChannelInfo from "../ui/ChannelInfo";
 import TabBar from "../ui/TabBar";
 import data from '../../data.json';
-import Header from "../ui/Header";
+import Header from "../ui/Header/Header";
 
 
 const Wrapper = styled.div`
@@ -36,7 +36,7 @@ function ChannelPage(props) {
 
     return (
         <Wrapper>   
-            <Header></Header> 
+            <Header />
             <Container>     
                 <TabBar>
                 </TabBar>
