@@ -1,12 +1,32 @@
 import React from "react";
-import UserInfo from "../../ui/UserInfo";
+import UserInfo from "../ui/UserInfo";
 import styled from "styled-components";
+import {useNavigate, useParams } from "react-router-dom";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { MdSaveAlt } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import CommentListItem from "../../list/CommentListItem";
-import UserCardList from "../../list/UserCardList";
-import VideoList from "../../list/VideoList";
+import CommentListItem from "../list/CommentListItem";
+import UserCardList from "../list/UserCardList";
+import VideoList from "../list/VideoList";
+import Header from '../ui/Header/Header';
+
+const videos = [
+    {
+        id: 1,
+        videouploder: "신혜혜",
+        videoname: "동영상"
+    },
+    {
+        id: 2,
+        videouploder: "차차소", 
+        videoname: "동영상"
+    },
+    {
+        id: 3,
+        videouploder: "최최은진진자라",
+        videoname: "동영상"
+    },
+];
 
 const Container = styled.div`
     display: grid;
@@ -88,6 +108,13 @@ const VideoContents = styled.div`
     background-color: lightgrey;
 `;
 
+const VideoContents1 = styled.div`
+    height: 40px;
+    margin: 1px;
+    border-radius: 10px;
+    background-color: lightgrey;
+`;
+
 const HashTag = styled.div`
     color: blue;
     font-size: 12px;
@@ -105,8 +132,16 @@ const Border = styled.div`
 function WatchPage(props) {
     const {} = props;
 
+    const navigate = useNavigate();
+    const { videoId } = useParams();
+
+    const video = videos.find((item) => {
+        return item.id == videoId;
+    });
+
     return (
         <div>
+            <Header/>
             <main>
                 <section style={{paddingTop:"150px"}}></section>
                     <Container>
@@ -121,7 +156,8 @@ function WatchPage(props) {
                         </VideoContainer>
                         <VideoInfo>
                             <Contents>
-                                <VideoName>비디오 제목</VideoName>
+                                <VideoName>
+                                    {video ? (video.videoname): "동영상 제목"}</VideoName>
                                 <VideoInfo1>비디오 views 비디오 업로드 날짜</VideoInfo1>
                             </Contents>
                             <VideoIcon>

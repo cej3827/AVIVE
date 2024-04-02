@@ -3,13 +3,12 @@ import React from 'react';
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
-import styled from "styled-components";
 //Pages
 import ChannelPage from './component/page/ChannelPage';
-
-
+import WatchPage from './component/page/WatchPage';
+import ScrollToTop from './component/ScrollTop';
 
 function App(props) {
   return (
@@ -18,8 +17,10 @@ function App(props) {
     //   <Channel channelInfo={channelInfo} />
     // </div>
     <BrowserRouter>
+      <ScrollToTop/>
       <Routes>
-        <Route index element={<ChannelPage />} />
+        <Route index element={<WatchPage />} />
+        <Route path="video/:videoId" element={<WatchPage />} />
       </Routes>
     </BrowserRouter>
   );
