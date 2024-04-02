@@ -3,24 +3,26 @@ import styled from "styled-components";
 
 const Container = styled.div`
     display: flex;
-    height: 195px;
+    height: 200px;
     margin: 10px 30px 10px 30px;
     align-items: end;
 `;
 
 const Container1 = styled.div`
     display: grid;
-    height: 70%;
-    margin-bottom: 15px;
-    background-color: blue;
+    height: 90%;
+`;
+
+const Container2 = styled.div`
+    display: grid;
+    margin-bottom: 30px;
+    align-content: end;
 `;
 
 const VideoInfo = styled.div`
     font-size: 12px;
     line-height: 25px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    margin-left: 2px;
     color: #8989A4;
 `;
 
@@ -48,13 +50,17 @@ const Rectangle25 = styled.div`
 `;
 
 function VideoListItem(props) {
+    const {video, onClick} = props;
+
     return (
-        <Container>
+        <Container onClick={onClick}>
             <Rectangle25/>
             <Container1>
-                <VideoName>{props.videoname}</VideoName>
-                <VideoUploder>{props.videouploder}</VideoUploder>
-                <VideoInfo>View 234</VideoInfo>
+                <VideoName>{video.videoname}</VideoName>
+                <Container2>
+                    <VideoUploder>{video.videouploder}</VideoUploder>
+                    <VideoInfo>View 234</VideoInfo>
+                </Container2>
             </Container1>
         </Container>
     );
