@@ -1,5 +1,4 @@
 import React from 'react';
-// import Channel from './pages/Channel';
 import Header from './component/ui/Header/Header';
 
 import {
@@ -17,9 +16,12 @@ function App(props) {
   return (
     <BrowserRouter>
       <ScrollToTop/>
-      <Routes>
+      {/* <Routes>
         <Route index element={<WatchPage />} />
         <Route path="video/:videoId" element={<WatchPage />} />
+      </Routes> */}
+      <Routes>
+        <Route index element={<ChannelPage />} />
       </Routes>
     </BrowserRouter>
   );

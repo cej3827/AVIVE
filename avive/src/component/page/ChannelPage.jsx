@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import List from "../list/CommunityList";
 import ChannelInfo from "../ui/ChannelInfo";
 import TabBar from "../ui/TabBar";
-import data from '../../data.json';
 import Header from "../ui/Header/Header";
+import SubscriptionButton from "../ui/SubscribeButton";
 
 
 const Wrapper = styled.div`
@@ -33,6 +32,7 @@ function ChannelPage(props) {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState(""); 
+    const isOwnChannel = true;
 
     return (
         <Wrapper>   
@@ -41,10 +41,13 @@ function ChannelPage(props) {
                 <TabBar>
                 </TabBar>
                 <ChannelInfo
-                    value={title}
-                    onChange={(event) => {
-                        setTitle(event.target.value);
-                    }}
+                    isOwnChannel={isOwnChannel}
+                    profilePictureSrc="프로필 사진 URL"
+                    channelName="Jinee's Daily"
+                    subscriberCount="Subscriber 120k"
+                    channelId="@choioio"
+                    channelIntro="hi im hacher"
+                    button={<SubscriptionButton />} // SubscribeButton 대신 ProfileButton을 전달하면 프로필 버튼으로 대체
                 />
 
             </Container>

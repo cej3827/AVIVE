@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SubscribeButton from "./SubscribeButton";
+import ProfileButton from "./ProfileButton";
 
 const ChannelInfoContainer = styled.div`
   display: flex;
@@ -74,19 +75,23 @@ const VerticalLine = styled.div`
 
 
 function ChannelInfo(props) {
-    const { value, onChange } = props;
+    // const { value, onChange } = props;
+    const { isOwnChannel, button, profilePictureSrc, channelName, subscriberCount, channelId, channelIntro } = props;
 
     return (
         <ChannelInfoContainer>
-          <ProfilePicture src="프로필 사진 URL" alt="프로필 사진" />
+          <ProfilePicture src={profilePictureSrc} alt="프로필 사진" />
           <ProfileInfo>
-            <ChannelName> Jinee's Daily
+            <ChannelName> 
+              {channelName}
               <VerticalLine />
-              <SubscriberCount>Subscriber 120k</SubscriberCount>
-              <SubscribeButton></SubscribeButton>
+              <SubscriberCount>{subscriberCount}</SubscriberCount>
+              {/* <SubscribeButton></SubscribeButton> */}
+              {isOwnChannel ? <ProfileButton /> : <SubscribeButton />}
+              {/* {isOwnChannel ? <SubscribeButton /> : <SubscribeButton />} */}
             </ChannelName>
-            <ChannelId>@choioio</ChannelId>
-            <ChannelIntro>hi im hacher</ChannelIntro>
+            <ChannelId>{channelId}</ChannelId>
+            <ChannelIntro>{channelIntro}</ChannelIntro>
           </ProfileInfo>
         </ChannelInfoContainer>
       );
