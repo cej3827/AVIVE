@@ -22,6 +22,7 @@ const IconWrapper = styled.span`
   align-items: center;
   flex-direction: row-reverse;
   font-size: 30px;
+  cursor: pointer;
 `;
 
 const ButtonContainer = styled.div`
@@ -37,6 +38,7 @@ const CancelButton = styled.button`
   border-radius: 8px;
   padding: 7px 20px;
   height: 32px;
+  cursor: pointer;
 `;
 
 const PostButton = styled.button`
@@ -49,6 +51,7 @@ const PostButton = styled.button`
   border-radius: 8px;
   margin-left: 5px;
   height: 32px;
+  cursor: pointer;
 `;
 
 const CommunityList = ({ communities }) => {

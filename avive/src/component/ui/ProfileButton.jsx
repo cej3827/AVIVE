@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaBell, FaBellSlash, FaCog, FaTimes } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 
 const Button = styled.button`
   display: inline-flex;
@@ -26,21 +26,16 @@ const Text = styled.span`
 
 
 const ProfileButton = () => {
-  const [subscribed, setSubscribed] = useState(false);
-  const [showNotificationSettings, setShowNotificationSettings] = useState(false);
-  const [notificationEnabled, setNotificationEnabled] = useState(true);
 
-  const handleButtonClick = () => {
-    if (subscribed) {
-      setShowNotificationSettings(!showNotificationSettings);
-    } else {
-      setSubscribed(true);
-    }
-  };
+  const navigate = useNavigate();
+
+  const goToMyProfile = () => {
+    navigate("/my-profile");
+  }
 
   return (
     <div style={{ position: 'relative' }}>
-      <Button onClick={handleButtonClick}>
+      <Button onClick={goToMyProfile}>
         <Text>{'My prifile'}</Text>
       </Button>
     </div>

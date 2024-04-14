@@ -7,7 +7,7 @@ const ModalWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 배경 투명도 조절 */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,23 +20,20 @@ const ModalContent = styled.div`
   border-radius: 5px;
   width: 800px;
   height: 500px;
-//   max-width: 600px; /* 최대 너비 지정 */
-//   width: 80%; /* 너비 지정 */
-//   max-height: 80%; /* 최대 높이 지정 */
   overflow-y: auto; /* 내용이 모달보다 길 경우 스크롤 표시 */
 `;
 
 const ModalTitleWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 20px; /* 타이틀과 내용 사이의 간격 조절 */
+  margin-bottom: 20px;
 `;
 
 const Divider = styled.hr`
   border: none;
   border-top: 1px solid #ccc;
   width: 90%;
-  margin-top: -20px; /* 타이틀 밑으로 이동할 여백 설정 */
+  margin-top: -20px;
 `;
 
 const ProfileImageWrapper = styled.div`
