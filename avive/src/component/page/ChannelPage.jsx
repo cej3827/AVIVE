@@ -42,11 +42,11 @@ function ChannelPage(props) {
                 </TabBar>
                 <ChannelInfo
                     isOwnChannel={isOwnChannel}
-                    profilePictureSrc="프로필 사진 URL"
+                    profileImageSrc="프로필 사진 URL"
                     channelName="Jinee's Daily"
                     subscriberCount="Subscriber 120k"
                     channelId="@choioio"
-                    channelIntro="hi im hacher"
+                    channelIntro="hi"
                     button={<SubscriptionButton />} // SubscribeButton 대신 ProfileButton을 전달하면 프로필 버튼으로 대체
                 />
 

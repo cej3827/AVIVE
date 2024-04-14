@@ -14,7 +14,7 @@ const ChannelInfoContainer = styled.div`
   // border: 1px solid #ccc;
 `;
 
-const ProfilePicture = styled.img`
+const ProfileImage = styled.img`
   // position: absolute;
   width: 130px;
   height: 130px;
@@ -76,11 +76,11 @@ const VerticalLine = styled.div`
 
 function ChannelInfo(props) {
     // const { value, onChange } = props;
-    const { isOwnChannel, button, profilePictureSrc, channelName, subscriberCount, channelId, channelIntro } = props;
+    const { isOwnChannel, button, profileImageSrc, channelName, subscriberCount, channelId, channelIntro } = props;
 
     return (
         <ChannelInfoContainer>
-          <ProfilePicture src={profilePictureSrc} alt="프로필 사진" />
+          <ProfileImage src={profileImageSrc} alt="프로필 사진" />
           <ProfileInfo>
             <ChannelName> 
               {channelName}

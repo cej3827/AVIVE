@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { VscKebabVertical } from "react-icons/vsc";
 
 const CommunityItemWrapper = styled.div`
   display: flex;
@@ -33,7 +34,8 @@ const CommunityItemContent = styled.p`
   margin-top: 8px;
 `;
 
-const CommunityItem = ({ profileImage, channelName, postTime, content }) => {
+const CommunityItem = ({ isOwnChannel, profileImage, channelName, postTime, content }) => {
+
   return (
     <CommunityItemWrapper>
       <ProfileImage src={profileImage} alt="Profile" />
@@ -41,8 +43,12 @@ const CommunityItem = ({ profileImage, channelName, postTime, content }) => {
         <div>
           <ChannelName>{channelName}</ChannelName>
           <PostTime>{postTime}</PostTime>
+          {isOwnChannel ? <VscKebabVertical /> : null}
         </div>
         <CommunityItemContent>{content}</CommunityItemContent>
+      </div>
+      <div>
+      {/* <VscKebabVertical /> */}
       </div>
     </CommunityItemWrapper>
   );
