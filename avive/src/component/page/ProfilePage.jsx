@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ChannelInfo from "../ui/ChannelInfo";
+import ProfileInfo from "../ui/ProfileInfo";
 import TabBar from "../ui/TabBar";
 import Header from "../ui/Header/Header";
 import SubscriptionButton from "../ui/SubscribeButton";
@@ -28,15 +28,20 @@ const Container = styled.div`
 function ProfilePage(props) {
     const {} = props;
 
-    const navigate = useNavigate();
-
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState(""); 
-    const isOwnChannel = true;
+    const hasChannel = true;
 
     return (
         <Wrapper>   
             <Header />
+            <Container>     
+                <ProfileInfo
+                    hasChannel={hasChannel}
+                    profileImageSrc="프로필 사진 URL"
+                    profileName="Jinee's Daily"
+                    profileId="@choioio"
+                />
+
+            </Container>
         </Wrapper>
     )
 }

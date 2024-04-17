@@ -24,6 +24,7 @@ function App(props) {
       <Routes>
         <Route index element={<ChannelPage />} />
         <Route path="/my-profile" element={<ProfilePage />} />
+        <Route path="/my-channel" element={<ChannelPage />} />
       </Routes>
     </BrowserRouter>
   );
