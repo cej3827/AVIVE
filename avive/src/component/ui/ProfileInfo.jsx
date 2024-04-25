@@ -26,7 +26,6 @@ const ProfileImage = styled.img`
   margin-right: 20px;
 
   background: #D9D9D9;
-
 `;
 
 const Info = styled.div`

@@ -6,6 +6,32 @@ import TabBar from "../ui/TabBar";
 import Header from "../ui/Header/Header";
 import SubscriptionButton from "../ui/SubscribeButton";
 
+import CommunityList from '../list/CommunityList';
+import PlaylistList from '../list/PlaylistList';
+import HomeTabContent from "../ui/HomeTabContent";
+import VideoTabContent from "../ui/VideoTabContent";
+
+const communities = [
+    { 
+      profileImage: 'profile1.jpg',
+      channelName: 'Channel 1',
+      postTime: '2 hours ago',
+      content: 'Content of Community 1' 
+    },
+    { 
+      profileImage: 'profile2.jpg',
+      channelName: 'Channel 2',
+      postTime: '1 day ago',
+      content: 'Content of Community 2' 
+    },
+    { 
+      profileImage: 'profile3.jpg',
+      channelName: 'Channel 3',
+      postTime: '1 week ago',
+      content: 'Content of Community 3' 
+    },
+  ];
+
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -27,19 +53,20 @@ const Container = styled.div`
 
 function ChannelPage(props) {
     const {} = props;
-
     const navigate = useNavigate();
-
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState(""); 
     const isOwnChannel = true;
+
+    const tabs = [
+        { key: 'home', label: 'Home', content: <HomeTabContent /> },
+        { key: 'video', label: 'Video', content: <VideoTabContent /> },
+        { key: 'playlist', label: 'Playlist', content: <PlaylistList communities={communities} /> },
+        { key: 'community', label: 'Community', content: <CommunityList communities={communities} /> }
+    ];
 
     return (
         <Wrapper>   
             <Header />
             <Container>     
-                <TabBar>
-                </TabBar>
                 <ChannelInfo
                     isOwnChannel={isOwnChannel}
                     profileImageSrc="프로필 사진 URL"
@@ -49,7 +76,7 @@ function ChannelPage(props) {
                     channelIntro="hi"
                     button={<SubscriptionButton />} // SubscribeButton 대신 ProfileButton을 전달하면 프로필 버튼으로 대체
                 />
-
+                <TabBar tabs={tabs}/>
             </Container>
         </Wrapper>
     )
