@@ -4,8 +4,31 @@ import styled from "styled-components";
 import ProfileInfo from "../ui/ProfileInfo";
 import TabBar from "../ui/TabBar";
 import Header from "../ui/Header/Header";
-import SubscriptionButton from "../ui/SubscribeButton";
 
+import PlaylistList from '../list/PlaylistList';
+import VideoTabContent from "../ui/VideoTabContent";
+
+
+const communities = [
+    { 
+      profileImage: 'profile1.jpg',
+      channelName: 'Channel 1',
+      postTime: '2 hours ago',
+      content: 'Content of Community 1' 
+    },
+    { 
+      profileImage: 'profile2.jpg',
+      channelName: 'Channel 2',
+      postTime: '1 day ago',
+      content: 'Content of Community 2' 
+    },
+    { 
+      profileImage: 'profile3.jpg',
+      channelName: 'Channel 3',
+      postTime: '1 week ago',
+      content: 'Content of Community 3' 
+    },
+  ];
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -30,6 +53,13 @@ function ProfilePage(props) {
 
     const hasChannel = true;
 
+    const tabs = [
+        { key: 'playlist', label: 'Playlist', content: <PlaylistList communities={communities} /> },
+        { key: 'history', label: 'History', content: <VideoTabContent /> },
+        { key: 'likes', label: 'Likes', content: <VideoTabContent /> },
+        { key: 'clip', label: 'Clip', content: <VideoTabContent /> }
+    ];
+
     return (
         <Wrapper>   
             <Header />
@@ -40,7 +70,7 @@ function ProfilePage(props) {
                     profileName="Jinee's Daily"
                     profileId="@choioio"
                 />
-
+                <TabBar tabs={tabs}/>
             </Container>
         </Wrapper>
     )

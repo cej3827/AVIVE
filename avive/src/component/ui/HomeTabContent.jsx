@@ -1,26 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaFlag } from 'react-icons/fa'; // react-icons에서 Flag 아이콘 불러오기
+import { BsFillPinFill } from "react-icons/bs";
 import CommunityItem from '../list/CommunityItem';
 
 const HomeTabContentContainer = styled.div`
   // margin-top: 20px;
+  // border: 1px solid;
 `;
 
 const CommunityContainer = styled.div`
   margin-bottom: 20px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 100px; 
+  display: flex;
+  flex Direction: 'row';
+  // border: 1px solid;
 `;
 
 const FixedCommunityHeader = styled.div`
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   margin-bottom: 10px;
+  // border: 1px solid;
 `;
 
-const FlagIcon = styled(FaFlag)`
-  margin-right: 5px;
+const FlagIcon = styled(BsFillPinFill)`
+  margin-right: 8px;
+  margin-top: 20px;
+  font-size: 18px;
+  // border: 1px solid;
   
 `;
 
@@ -39,15 +47,15 @@ const HomeTabContent = () => {
   // 고정된 커뮤니티
   const FixedCommunity = () => (
     <CommunityContainer>
+      <FlagIcon />
       <FixedCommunityHeader>
-        <FlagIcon /> 
+        <CommunityItem
+          profileImage="profile1.jpg"
+          channelName="Channel 1"
+          postTime="2 hours ago"
+          content="Content of Community 1"
+        />
       </FixedCommunityHeader>
-      <CommunityItem
-        profileImage="profile1.jpg"
-        channelName="Channel 1"
-        postTime="2 hours ago"
-        content="Content of Community 1"
-      />
     </CommunityContainer>
   );
 
