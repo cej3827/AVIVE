@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import React, { useState } from 'react';
 import { BiSolidVideoPlus } from "react-icons/bi";
 import { MdNotifications } from "react-icons/md";
 import { BiSolidUserCircle } from "react-icons/bi";
 import SearchBar from "./SearchBar";
+import UploadModal from "../UploadModal";
 
 const Wrapper = styled.header`
     position: fixed;
@@ -53,6 +55,15 @@ const MainTitleText = styled.p`
 `;
 
 function Header() {
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가 및 초기화
+    const openModal = () => {
+        setIsModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false); // 모달 닫기
+    };
+
     return (
         <Wrapper>
             <Contents>
@@ -66,11 +77,12 @@ function Header() {
                 </Container>
                 
                 <Align>
-                    <BiSolidVideoPlus className="icon" size="30" color="#111154"/>
+                    <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
                     <MdNotifications className="icon" size="30" color="#111154"/>
                     <BiSolidUserCircle className="icon" size="30" color="#111154"/>    
                 </Align>
             </Contents>
+            {isModalOpen && <UploadModal closeModal={closeModal} />}
         </Wrapper>
     );
 }
