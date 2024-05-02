@@ -8,6 +8,7 @@ const Wrapper = styled.header`
     position: fixed;
     width: 100%;
     height: 120px;
+    padding-bottom: 20px;
     background-color: white;
     z-index: 9999;
     right: 0px;

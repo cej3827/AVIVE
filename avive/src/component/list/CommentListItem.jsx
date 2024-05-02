@@ -1,6 +1,8 @@
 import React from "react";
 import CommentList from "./CommentList";
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
+import CommentPage from "../page/CommentPage";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 
@@ -114,13 +116,22 @@ const CommentArrayTextStyle = styled.div`
 `;
 
 function CommentListItem(props) {
+    const {comment} = props;
+
+    const navigate = useNavigate();
+
+    console.log(comment);
+
     return (
         <CommentContainer>
             <TextBox>
                 <TextStlye>
                     12 comments
                 </TextStlye>
-                <AllComemntTextStlye>
+                <AllComemntTextStlye
+                    onClick={() => {
+                        navigate(`./comment`);
+                    }}>
                     + View all
                 </AllComemntTextStlye>
             </TextBox>

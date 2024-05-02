@@ -56,9 +56,9 @@ function VideoListItem(props) {
         <Container onClick={onClick}>
             <Rectangle25/>
             <Container1>
-                <VideoName>{video.videoname}</VideoName>
+                <VideoName>{video.title}</VideoName>
                 <Container2>
-                    <VideoUploder>{video.videouploder}</VideoUploder>
+                    <VideoUploder>{video.uploder}</VideoUploder>
                     <VideoInfo>View 234</VideoInfo>
                 </Container2>
             </Container1>

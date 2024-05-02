@@ -1,16 +1,15 @@
 import React from "react"
-import VideoListItem from "./VideoListItem";
+import VideoListItem from "./DashBoardListItem";
 import styled from "styled-components"
-import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
-  margin: 5px;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
 `;
 
-function VideoList(props) {
+function DashBoardList(props) {
     const {videos} = props;
-
-    const navigate = useNavigate();
 
     return(
         <Container>
@@ -19,9 +18,6 @@ function VideoList(props) {
                     <VideoListItem
                         key={video.id} 
                         video={video}
-                        onClick={() => {
-                            navigate(`/video/${video.id}`);
-                        }}
                     />
                 );
             })}
@@ -29,4 +25,4 @@ function VideoList(props) {
     );
 }
 
-export default VideoList;
+export default DashBoardList;

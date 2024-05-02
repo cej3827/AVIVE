@@ -9,24 +9,7 @@ import CommentListItem from "../list/CommentListItem";
 import UserCardList from "../list/UserCardList";
 import VideoList from "../list/VideoList";
 import Header from '../ui/Header/Header';
-
-const videos = [
-    {
-        id: 1,
-        videouploder: "신혜혜",
-        videoname: "동영상"
-    },
-    {
-        id: 2,
-        videouploder: "차차소", 
-        videoname: "동영상"
-    },
-    {
-        id: 3,
-        videouploder: "최최은진진자라",
-        videoname: "동영상"
-    },
-];
+import data from '../../data.json';
 
 const Container = styled.div`
     display: grid;
@@ -131,13 +114,13 @@ const Border = styled.div`
 
 function WatchPage(props) {
     const {} = props;
-
-    const navigate = useNavigate();
     const { videoId } = useParams();
 
-    const video = videos.find((item) => {
+    const video = data.find((item) => {
         return item.id == videoId;
     });
+
+    const comment = video ? (video.id) : null ;
 
     return (
         <div>
@@ -151,13 +134,13 @@ function WatchPage(props) {
                                 <WatchVideo/>
                             </VideoScreen>
                             <CommentBox>
-                                <CommentListItem/>
+                                <CommentListItem comment={comment}/>
                             </CommentBox>
                         </VideoContainer>
                         <VideoInfo>
                             <Contents>
                                 <VideoName>
-                                    {video ? (video.videoname): "동영상 제목"}</VideoName>
+                                    {video ? (video.title): "동영상 제목"}</VideoName>
                                 <VideoInfo1>비디오 views 비디오 업로드 날짜</VideoInfo1>
                             </Contents>
                             <VideoIcon>
@@ -172,7 +155,9 @@ function WatchPage(props) {
                         <VideoName>Recommendation channel</VideoName>
                         <UserCardList/>
                         <Border/>
-                        <VideoList/>
+                        <VideoList 
+                            videos={data}
+                        ></VideoList>
                     </Container>
             </main>
         </div>
