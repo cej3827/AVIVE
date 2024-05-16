@@ -53,14 +53,12 @@ const JoinContainer = styled.div`
 
 const JoinBox = styled.div`
     width: 100%;
-    height: 88%;
+    height: 80%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
-    margin-top: 10px
 `;
 
 const TextBox = styled.div`
@@ -69,6 +67,8 @@ const TextBox = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    margin-top: 8px;
 `;
 
 const IDText = styled.div`
@@ -82,7 +82,14 @@ const IDText = styled.div`
     color: rgba(17, 17, 84, 0.8);
 `;
 
-const InputBox = styled.input`
+const InputBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+`;
+
+const Input = styled.input`
     box-sizing: border-box;
     width: 360px;
     height: 38px;
@@ -117,6 +124,8 @@ const LoginButton = styled.div`
 `;
 
 function Join1() {
+    const navigate = useNavigate();
+    
     return (
         <Wrapper>
             <TitleContainer>
@@ -125,12 +134,18 @@ function Join1() {
             </TitleContainer>
             <JoinContainer>
                 <JoinBox>
-                    <TextBox>
-                        <IDText>ID</IDText>
-                        <FaCircleInfo size={18}/>
-                    </TextBox>
-                    <InputBox/>
-                    <LoginButton>next</LoginButton>
+                    <InputBox>
+                        <TextBox>
+                            <IDText>ID</IDText>
+                            <FaCircleInfo size={18}/>
+                        </TextBox>
+                        <Input/>
+                    </InputBox>
+                    <LoginButton
+                         onClick={() => {
+                            navigate(`/join/2`);
+                        }}
+                    >next</LoginButton>
                 </JoinBox>
             </JoinContainer>
         </Wrapper>

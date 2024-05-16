@@ -15,6 +15,8 @@ import CommentPage from './component/page/CommentPage';
 import DashBoardPage from './component/page/DashBoardPage';
 import LoginPage from './component/page/LoginPage';
 import Join1 from './component/page/JoinWebPage/Join1';
+import Join2 from './component/page/JoinWebPage/Join2';
+import Join3 from './component/page/JoinWebPage/Join3';
 
 
 function App(props) {
@@ -23,7 +25,10 @@ function App(props) {
       <ScrollToTop/>
       <Routes>
         <Route index element={<LoginPage />} />
+        <Route path="login" element={<LoginPage />} />
         <Route path="join/1" element={<Join1 />} />
+        <Route path="join/2" element={<Join2 />} />
+        <Route path="join/3" element={<Join3 />} />
         <Route path="video" element={<WatchPage />} />
         <Route path="video/:videoId" element={<WatchPage />} />
         <Route path="video/:videoId/comment" element={<CommentPage />} />
