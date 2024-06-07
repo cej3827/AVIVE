@@ -32,6 +32,27 @@ const communities = [
     },
   ];
 
+  const playlists = [
+    {
+      thumbnail: 'playlist1_thumbnail.jpg',
+      channelName: 'Channel 1',
+      content: 'Playlist 1 description',
+      videos: [
+        { thumbnail: 'video1_thumbnail.jpg', title: 'Video 1', description: 'Description of video 1' },
+        { thumbnail: 'video2_thumbnail.jpg', title: 'Video 2', description: 'Description of video 2' },
+      ],
+    },
+    {
+      thumbnail: 'playlist2_thumbnail.jpg',
+      channelName: 'Channel 2',
+      content: 'Playlist 2 description',
+      videos: [
+        { thumbnail: 'video3_thumbnail.jpg', title: 'Video 3', description: 'Description of video 3' },
+        { thumbnail: 'video4_thumbnail.jpg', title: 'Video 4', description: 'Description of video 4' },
+      ],
+    },
+  ];
+
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -59,7 +80,7 @@ function ChannelPage(props) {
     const tabs = [
         { key: 'home', label: 'Home', content: <HomeTabContent /> },
         { key: 'video', label: 'Video', content: <VideoTabContent /> },
-        { key: 'playlist', label: 'Playlist', content: <PlaylistList communities={communities} /> },
+        { key: 'playlist', label: 'Playlist', content: <PlaylistList playlists={playlists} /> },
         { key: 'community', label: 'Community', content: <CommunityList communities={communities} /> }
     ];
 

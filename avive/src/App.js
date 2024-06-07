@@ -12,6 +12,7 @@ import WatchPage from './component/page/WatchPage';
 import ScrollToTop from './component/ScrollTop';
 import ProfilePage from './component/page/ProfilePage';
 import UploadPage from './component/page/UploadPage';
+import UploadPage2 from './component/page/UploadPage2';
 
 
 function App(props) {
@@ -27,6 +28,7 @@ function App(props) {
         <Route path="/my-profile" element={<ProfilePage />} />
         <Route path="/my-channel" element={<ChannelPage />} />
         <Route path="/upload" element={<UploadPage />} />
+        <Route path="/upload2" element={<UploadPage2 />} />
       </Routes>
     </BrowserRouter>
   );
