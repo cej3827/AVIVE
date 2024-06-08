@@ -20,11 +20,13 @@ import SetPage from "../page/SetPage";
 import UploadPage from "../page/UploadPage";
 import UploadPage2 from "../page/UploadPage2";
 import WatchPage from "../page/Home2Page";
+import ScrollToTop from "../ScrollTop"
 
 const Router = () =>{
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop/>
         <Routes>
           <Route path="/Home1" element={<Home1/>}/>
           <Route path="/Home2" element={<Home2/>}/>
@@ -33,23 +35,24 @@ const Router = () =>{
           <Route path="/SetPersonalInformation" element={<SetPersonalInformation/>}/>
           <Route path="/SetNotification" element={<SetNotification/>}/>
           <Route path="/CreateChannel" element={<CreateChannel/>}/>
-          <Route path="/FindPage" element={<FindPage/>}/>
-          <Route path="/FindPage1" element={<FindPage1/>}/>
           <Route path="/Join1" element={<Join1/>}/>
           <Route path="/Join2" element={<Join2/>}/>
           <Route path="/Join3" element={<Join3/>}/>
-          <Route path="/ChannelPage" element={<ChannelPage/>}/>
-          <Route path="/CommentPage" element={<CommentPage/>}/>
           <Route path="/CreateChannelPage" element={<CreateChannel/>}/>
           <Route path="/DashBoardPage" element={<DashBoardPage/>}/>
-          <Route path="/LoginPage" element={<LoginPage/>}/>
-          <Route path="/ProfilePage" element={<ProfilePage/>}/>
           <Route path="/SetNotificationPage" element={<SetNotification/>}/>
           <Route path="/SetPage" element={<SetPage/>}/>
           <Route path="/SetPersonalInfromationPage" element={<SetPersonalInformation/>}/>
-          <Route path="/UploadPage" element={<UploadPage/>}/>
-          <Route path="/UploadPage2" element={<UploadPage2/>}/>
-          <Route path="/WatchPage" element={<WatchPage/>}/>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="findPage/1" element={<FindPage />} />
+          <Route path="findPage/2" element={<FindPage1 />} />
+          <Route path="video" element={<WatchPage />} />
+          <Route path="video/:videoId" element={<WatchPage />} />
+          <Route path="video/:videoId/comment" element={<CommentPage />} />
+          <Route path="/my-profile" element={<ProfilePage />} />
+          <Route path="/my-channel" element={<ChannelPage />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/upload2" element={<UploadPage2 />} />
         </Routes>
       </BrowserRouter>
     </>
