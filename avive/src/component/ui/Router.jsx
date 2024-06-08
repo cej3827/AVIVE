@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 import Home1 from "../page/Home1Page";
-import Home2 from "../page/Home2Page";
+import Home2Page from "../page/Home2Page";
 import Set from "../page/SetPage";
 import Home2Full from "../page/Home2FullPage";
 import SetPersonalInformation from "../page/SetPersonalInformationPage";
@@ -29,7 +29,7 @@ const Router = () =>{
       <ScrollToTop/>
         <Routes>
           <Route path="/Home1" element={<Home1/>}/>
-          <Route path="/Home2" element={<Home2/>}/>
+          <Route path="/Home2Page" element={<Home2Page/>}/>
           <Route path="/Home2Full" element={<Home2Full/>}/>
           <Route path="/Set" element={<Set/>}/>
           <Route path="/SetPersonalInformation" element={<SetPersonalInformation/>}/>
