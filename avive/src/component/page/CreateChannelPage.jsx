@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderSet from "../components/HeaderSet";
+import HeaderSet from "../ui/Header/HeaderSet";
 import { IoPersonCircle } from "react-icons/io5";
 
 const ProfileIcon = styled(IoPersonCircle)`
   /* Account circle */
-
   position: absolute;
   width: 300px;
   height: 300px;
