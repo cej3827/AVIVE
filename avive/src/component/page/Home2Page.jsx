@@ -101,7 +101,7 @@ const ViewAllBtn = styled.div`
   border: none;
 `;
 
-export default function WatchPage(){
+export default function Home2Page(){
 
   const navigate = useNavigate();
 

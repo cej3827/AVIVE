@@ -27,7 +27,7 @@ const Router = () =>{
       <BrowserRouter>
         <Routes>
           <Route path="/Home1" element={<Home1/>}/>
-          <Route path="/Home2" element={<Home2/>}/>
+          <Route path="/Home2page" element={<Home2/>}/>
           <Route path="/Home2Full" element={<Home2Full/>}/>
           <Route path="/Set" element={<Set/>}/>
           <Route path="/SetPersonalInformation" element={<SetPersonalInformation/>}/>
