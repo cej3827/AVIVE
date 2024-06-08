@@ -1,29 +1,28 @@
 import React from "react";
 import styled from 'styled-components';
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
-import { FaCaretDown } from "react-icons/fa";
 
 const Wrapper = styled.div`
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     margin-bottom: 8px;
 `;
 
 const Container = styled.div`
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: start;
 `;
 
 const CommentContainer = styled.div`
-    display: grid;
-    width: 85%;
+    display: flex;
+    flex-direction: column;
     align-content: space-between;
+    margin-left: 10px;
 `;
 
 const CommentContainer1 = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     margin: 2px;
 `;
 
