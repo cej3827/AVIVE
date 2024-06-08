@@ -5,11 +5,12 @@ import {useNavigate, useParams } from "react-router-dom";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { MdSaveAlt } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import CommentListItem from "../list/CommentListItem";
+import Comment from "../ui/Comment"
 import UserCardList from "../list/UserCardList";
 import VideoList from "../list/VideoList";
 import Header from '../ui/Header/Header';
 import data from '../../data.json';
+import { useState } from "react";
 
 const Container = styled.div`
     display: grid;
@@ -115,12 +116,35 @@ const Border = styled.div`
 function WatchPage(props) {
     const {} = props;
     const { videoId } = useParams();
-
+    const [videoInfoId, setvideoInfoId] = useState(0);
+    
     const video = data.find((item) => {
         return item.id == videoId;
     });
 
-    const comment = video ? (video.id) : null ;
+    const comment = video ? (video.id) : '0' ;
+
+    const handleVideoInfoChecked = () => {
+        if(videoInfoId == 0){
+            return(
+                <VideoContents
+                    onClick={()=>{
+                        setvideoInfoId(1);
+                    }}>
+                    Hello ...
+                </VideoContents>
+            )}
+        else if(videoInfoId ==1){
+            return(
+                <VideoContents1
+                    onClick={()=>{
+                        setvideoInfoId(0);
+                    }}>
+                    {"Hello world"+"\n"+"My world very good girl"}
+                </VideoContents1>
+            );
+        }
+    }
 
     return (
         <div>
@@ -134,7 +158,7 @@ function WatchPage(props) {
                                 <WatchVideo/>
                             </VideoScreen>
                             <CommentBox>
-                                <CommentListItem comment={comment}/>
+                                <Comment comment={comment}/>
                             </CommentBox>
                         </VideoContainer>
                         <VideoInfo>
@@ -150,7 +174,7 @@ function WatchPage(props) {
                                 <MdSaveAlt size={30}/>
                             </VideoIcon>
                         </VideoInfo>
-                        <VideoContents></VideoContents>
+                        {handleVideoInfoChecked()}
                         <HashTag>#vlog #감성 #먹방</HashTag>
                         <VideoName>Recommendation channel</VideoName>
                         <UserCardList/>

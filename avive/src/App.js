@@ -17,6 +17,8 @@ import LoginPage from './component/page/LoginPage';
 import Join1 from './component/page/JoinWebPage/Join1';
 import Join2 from './component/page/JoinWebPage/Join2';
 import Join3 from './component/page/JoinWebPage/Join3';
+import FindPage from './component/page/FindUserPage.jsx/FindPage';
+import FindPage1 from './component/page/FindUserPage.jsx/FindPage1';
 
 
 function App(props) {
@@ -29,6 +31,8 @@ function App(props) {
         <Route path="join/1" element={<Join1 />} />
         <Route path="join/2" element={<Join2 />} />
         <Route path="join/3" element={<Join3 />} />
+        <Route path="findPage/1" element={<FindPage />} />
+        <Route path="findPage/2" element={<FindPage1 />} />
         <Route path="video" element={<WatchPage />} />
         <Route path="video/:videoId" element={<WatchPage />} />
         <Route path="video/:videoId/comment" element={<CommentPage />} />

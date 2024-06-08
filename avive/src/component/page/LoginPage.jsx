@@ -1,6 +1,9 @@
 import React from "react";
+import {useState, useRef} from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import { IoEyeSharp } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Wrapper = styled.div`
     display: flex;
@@ -50,10 +53,21 @@ const Line = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.15);
 `;
 
+const InputContainer = styled.div`
+    width: 360px;
+    position: relative;
+
+    div {
+        position: absolute;
+        right: 10px;
+        top: 8px;
+    }
+`;
+
 const InputBox = styled.input`
     box-sizing: border-box;
     width: 360px;
-    height: 38px;
+    height: 40px;
 
     outline: none;
 
@@ -171,23 +185,96 @@ const CreateLoginUser = styled.div`
 
 function LoginPage() {
     const navigate = useNavigate();
+    const [idValue, setId] = useState();
+    const [pwValue, setPw] = useState();
+    const [msError, setMsError] = useState(0);
+    
+    const [isShowPwChecked, setShowPwChecked] = useState(false)
+    const passwordRef = useRef(null);
 
+
+    function onChangeId(event){
+        setId(event.target.value);
+    }
+
+    function onChangePw(event){
+        setPw(event.target.value);
+    }
+
+    const handleShowPwChecked = () => {
+        const password = passwordRef.current
+        if (password === null) return
+      
+        setShowPwChecked(!isShowPwChecked)
+        if(!isShowPwChecked) {
+          password.type = 'text';
+        } else {
+          password.type = 'password';
+        }
+    }
+
+    const IconBox = () => {
+        if(!isShowPwChecked){
+            return(
+                <div>
+                    <IoEyeSharp 
+                        size={20} color="#111154"
+                        onClick={()=>handleShowPwChecked()}/>
+                </div>
+            );
+        }
+        else{
+            return(
+                <div>
+                    <IoEyeOff 
+                        size={20} color="#111154"
+                        onClick={()=>handleShowPwChecked()}/>
+                </div>
+            );
+        }
+    }
+      
     return(
         <Wrapper>
             <AVIVETITLE>AIVIVE</AVIVETITLE>
             <LoginContainer>
                 <LoginBox>
-                    <InputBox type='text' placeholder="ID"/>
-                    <InputBox type='text' placeholder="Password"/>
-                    <LoginErrorText>*ID/Password is wrong</LoginErrorText>
+                    <InputBox 
+                        type='text' 
+                        placeholder="ID" 
+                        onChange={onChangeId}
+                        maxLength={12}/>
+                    <InputContainer>
+                        <InputBox 
+                            type='password' 
+                            placeholder="Password" 
+                            onChange={onChangePw}
+                            ref={passwordRef}/>
+                        <IconBox/>
+                    </InputContainer>
+                    <LoginErrorText>{msError === 0 ? null : "*ID/Password is wrong"}</LoginErrorText>
                     <LoginButton
+                        key={null}
                         onClick={() => {
-                            navigate(`/video`);
+                            if(idValue==="Hello" && pwValue==="1234@"){
+                                console.log("로그인에 성공하였습니다.");
+                                navigate(`/video/0`);
+                            }
+                            else{
+                                setMsError(1);
+                                console.log("틀렸습니다.");
+                            }
                         }}
                     >login</LoginButton>
                     <LoginFindContainer>
-                        <LoginFindText>Forget ID</LoginFindText>
-                        <LoginFindText>Forget Password</LoginFindText>
+                        <LoginFindText 
+                            onClick={() => {
+                                navigate(`/findPage/1`, { state : {page : 0} }); }}
+                        >Forget ID</LoginFindText>
+                        <LoginFindText 
+                            onClick={() => {
+                                navigate(`/findPage/1`, { state : {page : 1} }); }}
+                        >Forget Password</LoginFindText>
                     </LoginFindContainer>
                     <Line/>
                     <KakaoLogin>kakao login</KakaoLogin>

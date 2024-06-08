@@ -1,8 +1,7 @@
 import React from "react";
-import {useState} from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
-import { FaCircleInfo } from "react-icons/fa6";
+import { MdAddBox } from "react-icons/md";
 
 const Wrapper = styled.div`
     display: flex;
@@ -54,7 +53,7 @@ const JoinContainer = styled.div`
 
 const JoinBox = styled.div`
     width: 100%;
-    height: 80%;
+    height: 88%;
 
     display: flex;
     flex-direction: column;
@@ -84,7 +83,6 @@ const IDText = styled.div`
 `;
 
 const InputBox = styled.div`
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -104,11 +102,38 @@ const Input = styled.input`
     padding-left: 10px;
 `;
 
+const ButtonBox = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 const LoginButton = styled.div`
     width: 360px;
     height: 40px;
+    margin-top: 6px;
+    
+    background: lightgrey;
+    border: 1.2px solid lightgrey;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
 
-    background: #111154;
+    && {
+        font-family: 'Alata';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: black;
+        text-align: center;
+        line-height: 35px;
+    }
+`;
+
+const SelfButton = styled.div`
+    width: 360px;
+    height: 40px;
+
+    background-color: #111154;
     border: 1.2px solid #111154;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -125,42 +150,9 @@ const LoginButton = styled.div`
     }
 `;
 
-const InfoBox = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    div {
-        top: 40px;
-        right: 0px;
-    }
-`;
-
-const InfoText = styled.div`
-    position: absolute;
-    width: 164px;
-
-    background: #FFFFFF;
-    border: 0.4px solid #111154;
-    border-radius: 10px;
-
-    padding-left: 6px;
-
-    && {
-        font-family: 'Alata';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 22px;
-        text-align : start;
-        color: #111154;
-        border: 0.2px solid #111154;
-    }
-`;
-
-function Join1() {
+function Join3() {
     const navigate = useNavigate();
-    const [infoState, setinfoState] = useState(false);
-
+    
     return (
         <Wrapper>
             <TitleContainer>
@@ -171,30 +163,30 @@ function Join1() {
                 <JoinBox>
                     <InputBox>
                         <TextBox>
-                            <IDText>ID</IDText>
-                            <InfoBox>
-                                <FaCircleInfo 
-                                    size={18} color={infoState !== true ? "#111154" : "grey"}
-                                    onClick={()=>{
-                                        setinfoState(!infoState);
-                                        console.log(infoState);
-                                    }}
-                                />
-                                {infoState && 
-                                    <InfoText> 5자 이상 영어, 숫자 조합으로 생성해주세요.</InfoText>}
-                            </InfoBox>
+                            <IDText>profile Name</IDText>
                         </TextBox>
                         <Input/>
+                        <TextBox>
+                            <IDText>profile Photo</IDText>
+                        </TextBox>
+                        <MdAddBox size={110} color="#111154"/>
                     </InputBox>
-                    <LoginButton
-                         onClick={() => {
-                            navigate(`/join/2`);
-                        }}
-                    >next</LoginButton>
+                    <ButtonBox>
+                        <SelfButton
+                            onClick={() => {
+                                navigate(`/login`);
+                            }}
+                        >Self Certification</SelfButton>
+                        <LoginButton
+                            onClick={() => {
+                                navigate(`/login`);
+                            }}
+                        >login</LoginButton>
+                    </ButtonBox>
                 </JoinBox>
             </JoinContainer>
         </Wrapper>
     );
 }
 
-export default Join1;
+export default Join3;

@@ -10,7 +10,7 @@ const Wrapper = styled.header`
     height: 120px;
     padding-bottom: 20px;
     background-color: white;
-    z-index: 9999;
+    z-index: 900;
     right: 0px;
     top: 0px;
 `;
