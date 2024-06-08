@@ -70,8 +70,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
+import Header from "../ui/Header/Header";
 import { useNavigate } from "react-router-dom";
 
 const Subtitle = styled.div`

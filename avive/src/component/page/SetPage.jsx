@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
+import Header from "../ui/Header/Header";
 
 import { IoPersonCircle } from "react-icons/io5";
 import { HiPencil } from "react-icons/hi2";

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderSet from "../components/HeaderSet";
+import HeaderSet from "../ui/Header/HeaderSet";
+import { useNavigate } from 'react-router-dom';
 
 
 const TextsWrapper = styled.div`
@@ -169,7 +170,7 @@ export default function SetPersonalInformation(){
         <InputBox style={{top:'290px'}}/>
       </WrapperInputBox>
 
-      <DoneBtn onClick={()=>{navigateto('/Home2Full');}}>Done</DoneBtn>
+      <DoneBtn>Done</DoneBtn>
 
       <Line/>
       <WithdrawBtn>Withdraw from avive</WithdrawBtn>   

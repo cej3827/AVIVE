@@ -1,7 +1,7 @@
 import React from "react";
-import MenuNav from "../components/MenuNav";
+import MenuNav from "../ui/MenuNav";
 import styled from "styled-components";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../ui/Header/SearchBar";
 
 const LogoStyle = styled.h1`
   /* LOGO */

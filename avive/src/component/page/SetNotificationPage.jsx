@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import HeaderSet from "../components/HeaderSet";
+import HeaderSet from "../ui/Header/HeaderSet";
 
 const SemiTitle = styled.div`
   /* subscribe */
