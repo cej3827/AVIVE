@@ -3,20 +3,25 @@ import styled from "styled-components";
 
 const Container = styled.div`
     display: flex;
+    flex-direction: row;
     height: 200px;
     margin: 10px 30px 10px 30px;
     align-items: end;
 `;
 
 const Container1 = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 90%;
 `;
 
 const Container2 = styled.div`
-    display: grid;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
     align-content: end;
+
+    margin-bottom: 20px;
 `;
 
 const VideoInfo = styled.div`
@@ -27,24 +32,21 @@ const VideoInfo = styled.div`
 `;
 
 const VideoUploder = styled.div`
+    display: flex;
     font-size: 16px;
     line-height: 25px;
-    display: flex;
-    align-items: center;
     color: #444343;
 `;
 
 const VideoName = styled.div`
-    font-size: 22px;
+    font-size: 20px;
     line-height: 39px;
-    display: flex;
-    align-items: center;
     color: #000000;
 `;
 
 const Rectangle25 = styled.div`
-    width: 315px;
-    height: 165px;
+    width: 300px;
+    height: 80%;
     background: #D9D9D9;
     margin: 15px;
 `;
@@ -56,9 +58,9 @@ function VideoListItem(props) {
         <Container onClick={onClick}>
             <Rectangle25/>
             <Container1>
-                <VideoName>{video.videoname}</VideoName>
+                <VideoName>{video.title}</VideoName>
                 <Container2>
-                    <VideoUploder>{video.videouploder}</VideoUploder>
+                    <VideoUploder>{video.uploder}</VideoUploder>
                     <VideoInfo>View 234</VideoInfo>
                 </Container2>
             </Container1>

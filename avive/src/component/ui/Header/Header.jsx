@@ -9,9 +9,10 @@ import UploadModal from "../UploadModal";
 const Wrapper = styled.header`
     position: fixed;
     width: 100%;
-    height: 115px;
+    height: 120px;
+    padding-bottom: 20px;
     background-color: white;
-    z-index: 9999;
+    z-index: 900;
     right: 0px;
     top: 0px;
     // box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
