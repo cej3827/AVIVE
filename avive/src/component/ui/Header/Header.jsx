@@ -9,11 +9,14 @@ import UploadModal from "../UploadModal";
 const Wrapper = styled.header`
     position: fixed;
     width: 100%;
-    height: 120px;
+    height: 115px;
     background-color: white;
     z-index: 9999;
     right: 0px;
     top: 0px;
+    // box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+    // border-bottom-left-radius: 10px;
+    // border-bottom-right-radius: 10px;
 `;
 
 const Contents = styled.div`
