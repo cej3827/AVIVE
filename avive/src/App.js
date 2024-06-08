@@ -1,5 +1,4 @@
 import React from 'react';
-// import Channel from './pages/Channel';
 import Header from './component/ui/Header/Header';
 
 import {
@@ -19,6 +18,9 @@ import Join2 from './component/page/JoinWebPage/Join2';
 import Join3 from './component/page/JoinWebPage/Join3';
 import FindPage from './component/page/FindUserPage.jsx/FindPage';
 import FindPage1 from './component/page/FindUserPage.jsx/FindPage1';
+import ProfilePage from './component/page/ProfilePage';
+import UploadPage from './component/page/UploadPage';
+import UploadPage2 from './component/page/UploadPage2';
 
 
 function App(props) {
@@ -36,6 +38,10 @@ function App(props) {
         <Route path="video" element={<WatchPage />} />
         <Route path="video/:videoId" element={<WatchPage />} />
         <Route path="video/:videoId/comment" element={<CommentPage />} />
+        <Route path="/my-profile" element={<ProfilePage />} />
+        <Route path="/my-channel" element={<ChannelPage />} />
+        <Route path="/upload" element={<UploadPage />} />
+        <Route path="/upload2" element={<UploadPage2 />} />
       </Routes>
     </BrowserRouter>
   );
