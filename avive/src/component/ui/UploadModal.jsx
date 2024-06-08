@@ -18,7 +18,7 @@ const ModalWrapper = styled.div`
 
 const ModalContent = styled.div`
   background: white;
-  padding: 0 20px; 0 20px;
+  padding: 0 20px;
   border-radius: 8px;
   width: 300px;
   display: flex;
@@ -91,5 +91,6 @@ const UploadModal = ({ closeModal }) => {
         </ModalWrapper>
     );
 };
+
 
 export default UploadModal;
