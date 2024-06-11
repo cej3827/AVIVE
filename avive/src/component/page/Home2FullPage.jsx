@@ -3,29 +3,43 @@ import Header2 from "../ui/Header/Header2";
 import SubsChannelList from "../list/SubsChannelList";
 import VideoList from "../list/VideoList2";
 import styled from "styled-components";
+import VideoList2 from "../list/VideoList2";
 
-const Contents = styled.div`
-  
+const Wrapper = styled.div`
+  margin-top:120px;
+  margin-left:70px;
+`;
+
+const SubscrbieChannelListStyle = styled.div`
+  position: absolute;
+  width: 1550px;
+  height: 170px;
+  top: 120px;
+  overflow-x: scroll;
+`;
+
+const VideoListStyle = styled.div`
+  position:absolute;
+  width:1550px;
+  height: auto;
+  top: 300px;
+  overflow-y: scroll;
 `;
 
 function Home2Full(){
   return (
     <div>
-      <head>
-        <title>AVIVE</title>
-        <meta charset="utf-8"/>
-      </head>
-      <div style={{position:'fixed', display:'block', zIndex:'100', top:'0', width:'100%', background:'#ffffff'}}>
-        <Header2/>
-      </div>
-      <div style={{position:'sticky',marginTop:'80px'}}>
-        <div>
-        <SubsChannelList/>
-        </div>
-      </div>
-      <div>
-          <VideoList/>
-      </div>
+      <Header2/>
+      <Wrapper>
+
+        <SubscrbieChannelListStyle>
+          <SubsChannelList/>
+        </SubscrbieChannelListStyle>
+
+        <VideoListStyle>
+          <VideoList2/>
+        </VideoListStyle>
+      </Wrapper>
     </div>
   );
 }
