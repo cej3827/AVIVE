@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 import Router from './component/ui/Router';
 import Home1 from './component/page/Home1Page';
-
 
 function App() {
   return (
