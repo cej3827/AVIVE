@@ -37,20 +37,24 @@ const CommunityItemContent = styled.p`
   margin-top: 8px;
 `;
 
+const DropdownContainer = styled.div`
+  position: relative;
+`;
+
 const DropdownButton = styled(VscKebabVertical)`
   cursor: pointer;
 `;
 
 const DropdownMenu = styled.div`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  // position: absolute;
-  // top: 100%;
-  // right: 0;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 8px;
-  // z-index: 1;
+  z-index: 1;
 `;
 
 const MenuItem = styled.div`
@@ -68,6 +72,10 @@ const CommunityItem = ({ isOwnChannel, profileImage, channelName, postTime, cont
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <CommunityItemWrapper>
       <ChannelInfoWrapper>
@@ -81,14 +89,14 @@ const CommunityItem = ({ isOwnChannel, profileImage, channelName, postTime, cont
         </div>
       </ChannelInfoWrapper>
       {isOwnChannel && (
-        <div>
+        <DropdownContainer>
           <DropdownButton onClick={toggleMenu} />
           <DropdownMenu isOpen={isMenuOpen}>
-            <MenuItem>Edit</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Fix</MenuItem>
+            <MenuItem onClick={closeMenu}>Edit</MenuItem>
+            <MenuItem onClick={closeMenu}>Delete</MenuItem>
+            <MenuItem onClick={closeMenu}>Fix</MenuItem>
           </DropdownMenu>
-        </div>
+        </DropdownContainer>
       )}
     </CommunityItemWrapper>
   );

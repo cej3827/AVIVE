@@ -92,4 +92,5 @@ const UploadModal = ({ closeModal }) => {
     );
 };
 
+
 export default UploadModal;

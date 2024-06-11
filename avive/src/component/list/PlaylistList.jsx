@@ -7,19 +7,22 @@ const PlaylistListWrapper = styled.div`
 //   margin: 0 auto;
 `;
 
-const PlaylistList = ({ communities }) => {
+const PlaylistList = ({ playlists }) => {
   return (
     <PlaylistListWrapper>
-      {communities.map((community, index) => (
-        <React.Fragment key={index}>
+      {Array.isArray(playlists) && playlists.length > 0 ? (
+        playlists.map((playlist, index) => (
           <PlaylistItem
-            profileImage={community.profileImage}
-            channelName={community.channelName}
-            postTime={community.postTime}
-            content={community.content}
+            key={index}
+            thumbnail={playlist.thumbnail}
+            channelName={playlist.channelName}
+            content={playlist.content}
+            videos={playlist.videos}
           />
-        </React.Fragment>
-      ))}
+        ))
+      ) : (
+        <p>No playlists available</p>
+      )}
     </PlaylistListWrapper>
   );
 };

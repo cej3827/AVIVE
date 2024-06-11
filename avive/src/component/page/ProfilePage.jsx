@@ -7,26 +7,26 @@ import Header from "../ui/Header/Header";
 
 import PlaylistList from '../list/PlaylistList';
 import VideoTabContent from "../ui/VideoTabContent";
+import VideoList from "../list/VideoList";
 
-
-const communities = [
-    { 
-      profileImage: 'profile1.jpg',
+  const playlists = [
+    {
+      thumbnail: 'playlist1_thumbnail.jpg',
       channelName: 'Channel 1',
-      postTime: '2 hours ago',
-      content: 'Content of Community 1' 
+      content: 'Playlist 1 description',
+      videos: [
+        { thumbnail: 'video1_thumbnail.jpg', title: 'Video 1', description: 'Description of video 1' },
+        { thumbnail: 'video2_thumbnail.jpg', title: 'Video 2', description: 'Description of video 2' },
+      ],
     },
-    { 
-      profileImage: 'profile2.jpg',
+    {
+      thumbnail: 'playlist2_thumbnail.jpg',
       channelName: 'Channel 2',
-      postTime: '1 day ago',
-      content: 'Content of Community 2' 
-    },
-    { 
-      profileImage: 'profile3.jpg',
-      channelName: 'Channel 3',
-      postTime: '1 week ago',
-      content: 'Content of Community 3' 
+      content: 'Playlist 2 description',
+      videos: [
+        { thumbnail: 'video3_thumbnail.jpg', title: 'Video 3', description: 'Description of video 3' },
+        { thumbnail: 'video4_thumbnail.jpg', title: 'Video 4', description: 'Description of video 4' },
+      ],
     },
   ];
 
@@ -54,10 +54,10 @@ function ProfilePage(props) {
     const hasChannel = true;
 
     const tabs = [
-        { key: 'playlist', label: 'Playlist', content: <PlaylistList communities={communities} /> },
-        { key: 'history', label: 'History', content: <VideoTabContent /> },
-        { key: 'likes', label: 'Likes', content: <VideoTabContent /> },
-        { key: 'clip', label: 'Clip', content: <VideoTabContent /> }
+        { key: 'playlist', label: 'Playlist', content: <PlaylistList playlists={playlists} /> },
+        { key: 'history', label: 'History', content: <VideoList /> },
+        { key: 'likes', label: 'Likes', content: <VideoList /> },
+        { key: 'clip', label: 'Clip', content: <VideoList /> }
     ];
 
     return (
