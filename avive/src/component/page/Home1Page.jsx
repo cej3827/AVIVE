@@ -1,7 +1,12 @@
 import React from "react";
-import MenuNav from "../ui/MenuNav";
 import styled from "styled-components";
 import SearchBar from "../ui/Header/SearchBar";
+import Header3 from "../ui/Header/Header3";
+import { TfiAngleDoubleUp } from "react-icons/tfi";
+import { CgChevronDoubleUp } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
+
+
 
 const LogoStyle = styled.h1`
   /* LOGO */
@@ -35,12 +40,29 @@ const LogoStyle = styled.h1`
 
 // `;
 
+const DoubleUp = styled(CgChevronDoubleUp)`
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 800px;
+  top: 774px;
+
+  color: #111154;
+  border-radius: 20%;
+`;
+
 function Home1(){
+  const navigate = useNavigate();
+
+  const onClickUp = () => {
+    navigate(`/Home2`);
+  };
+
   return (
     <div>
       {/* HeaderMenu */}
       <div>
-        <MenuNav/>
+        <Header3/>
       </div>
 
       {/* Logo & SearchBar */}
@@ -51,6 +73,8 @@ function Home1(){
       <div style={{marginLeft:'400px', marginTop:'430px', marginRight:'auto'}}>
         <SearchBar/>
       </div>
+
+      <DoubleUp onClick={onClickUp}/>
 
     </div>
   );

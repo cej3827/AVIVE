@@ -1,7 +1,7 @@
 import React from "react";
 import Header2 from "../ui/Header/Header2";
 import SubsChannelList from "../list/SubsChannelList";
-import VideoList from "../list/VideoList";
+import VideoList from "../list/VideoList2";
 import styled from "styled-components";
 
 const Contents = styled.div`
