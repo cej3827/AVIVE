@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import SubscribeButton from "./SubscribeButton";
 import ProfileButton from "./ProfileButton";
@@ -95,6 +94,5 @@ function ChannelInfo(props) {
           </ProfileInfo>
         </ChannelInfoContainer>
       );
-}
-
-export default ChannelInfo;
+  }
+  export default ChannelInfo;
