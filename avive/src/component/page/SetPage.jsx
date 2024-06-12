@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import styled from "styled-components";
 import Header from "../ui/Header/Header";
 
@@ -8,7 +8,7 @@ import { FaUserLock } from "react-icons/fa";
 import { FaRegBell } from "react-icons/fa6";
 
 
-const Profile = styled(IoPersonCircle)`
+const ProfileIcon = styled(IoPersonCircle)`
   width: 230px;
   height: 230px;
   border-radius: 50%;
@@ -74,6 +74,7 @@ color: #000000;
 `;
 
 export default function Set() {
+
   return (
     <div>
       {/* header */}
@@ -84,7 +85,7 @@ export default function Set() {
 
       {/* contents 1 */}
       <div style={{display:'grid',alignItems:'center' ,marginTop:'170px'}}>
-        <Profile/>
+        <ProfileIcon/> {/* 클릭 시 모달창 오픈 */}
         <div>
           <Name>ckthdud</Name>
           <PencilIcon />
