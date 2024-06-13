@@ -29,35 +29,35 @@ const Router = () =>{
   return (
     <>
       <BrowserRouter>
-        <ScrollToTop/>
-          <Routes>
-            <Route index element={<Home1/>}/>
-            <Route path="/Home1" element={<Home1/>}/>
-            <Route path="/Home2" element={<Home2/>}/>
-            <Route path="/Home2Full" element={<Home2Full/>}/>
-            <Route path="/Set" element={<Set/>}/>
-            <Route path="/SetPersonalInformation" element={<SetPersonalInformation/>}/>
-            <Route path="/SetNotification" element={<SetNotification/>}/>
-            <Route path="/CreateChannel" element={<CreateChannel/>}/>
-            <Route path="/Join1" element={<Join1/>}/>
-            <Route path="/Join2" element={<Join2/>}/>
-            <Route path="/Join3" element={<Join3/>}/>
-            <Route path="/CreateChannelPage" element={<CreateChannel/>}/>
-            <Route path="/DashBoardPage" element={<DashBoardPage/>}/>
-            <Route path="/SetNotificationPage" element={<SetNotification/>}/>
-            <Route path="/SetPage" element={<SetPage/>}/>
-            <Route path="/SetPersonalInfromationPage" element={<SetPersonalInformation/>}/>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="findPage/1" element={<FindPage />} />
-            <Route path="findPage/2" element={<FindPage1 />} />
-            <Route path="video" element={<WatchPage />} />
-            <Route path="video/:videoId" element={<WatchPage />} />
-            <Route path="video/:videoId/comment" element={<CommentPage />} />
-            <Route path="/my-profile" element={<ProfilePage />} />
-            <Route path="/my-channel" element={<ChannelPage />} />
-            <Route path="/upload" element={<UploadPage />} />
-            <Route path="/upload2" element={<UploadPage2 />} />
-          </Routes>
+
+      <ScrollToTop/>
+        <Routes>
+          <Route path="/Home1" element={<Home1/>}/>
+          <Route path="/Home2" element={<Home2/>}/>
+          <Route path="/Home2Full" element={<Home2Full/>}/>
+          <Route path="/Set" element={<Set/>}/>
+          <Route path="/SetPersonalInformation" element={<SetPersonalInformation/>}/>
+          <Route path="/SetNotification" element={<SetNotification/>}/>
+          <Route path="/CreateChannel" element={<CreateChannel/>}/>
+          <Route path="/Join1" element={<Join1/>}/>
+          <Route path="/Join2" element={<Join2/>}/>
+          <Route path="/Join3" element={<Join3/>}/>
+          <Route path="/CreateChannelPage" element={<CreateChannel/>}/>
+          <Route path="/DashBoardPage" element={<DashBoardPage/>}/>
+          <Route path="/SetNotificationPage" element={<SetNotification/>}/>
+          <Route path="/SetPage" element={<SetPage/>}/>
+          <Route path="/SetPersonalInfromationPage" element={<SetPersonalInformation/>}/>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="findPage/1" element={<FindPage />} />
+          <Route path="findPage/2" element={<FindPage1 />} />
+          <Route path="video" element={<WatchPage />} />
+          <Route path="video/:videoId" element={<WatchPage />} />
+          <Route path="video/:videoId/comment" element={<CommentPage />} />
+          <Route path="/my-profile" element={<ProfilePage />} />
+          <Route path="/my-channel" element={<ChannelPage />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/upload2" element={<UploadPage2 />} />
+        </Routes>
       </BrowserRouter>
     </>
   );

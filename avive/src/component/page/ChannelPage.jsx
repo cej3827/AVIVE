@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ChannelInfo from "../ui/ChannelInfo";
 import TabBar from "../ui/TabBar";
 import Header from "../ui/Header/Header";
 import SubscriptionButton from "../ui/SubscribeButton";
-
 import CommunityList from '../list/CommunityList';
 import PlaylistList from '../list/PlaylistList';
 import HomeTabContent from "../ui/HomeTabContent";
 import VideoTabContent from "../ui/VideoTabContent";
+import ChannelInfo from "../ui/ChannelInfo";
 
 const communities = [
     { 
