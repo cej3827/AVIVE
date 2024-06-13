@@ -57,9 +57,9 @@ const HomeTabContent = () => {
   // 고정된 영상
   const FixedVideo = () => {
     const fixedVideo = {
-      videoname: "ohohohoh",
-      videouploder: "choi",
-      viewCount: 234,
+      title: "ohohohoh",
+      uploder: "choi",
+      viewCount: 239,
     };
 
     return (

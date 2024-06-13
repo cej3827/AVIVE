@@ -61,7 +61,7 @@ function VideoListItem(props) {
                 <VideoName>{video.title}</VideoName>
                 <Container2>
                     <VideoUploder>{video.uploder}</VideoUploder>
-                    <VideoInfo>View 234</VideoInfo>
+                    <VideoInfo>View {video.viewCount}</VideoInfo>
                 </Container2>
             </Container1>
         </Container>
