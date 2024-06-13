@@ -89,12 +89,20 @@ const ContentsProfile = styled.div`
 
 `;
 
+const ProfileImg = styled.img`
+  width:100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
 export default function NotificationListModalItem(props){
   return(
     <Wrapper>
       <SmallHeader>{props.date}</SmallHeader>
       <ContentsWrapper>
-        <ContentsProfile>{props.profile}</ContentsProfile>
+        <ContentsProfile>
+          <ProfileImg src={props.profile}/>
+        </ContentsProfile>
         <ContentsNotification>{props.content}</ContentsNotification>
         <ContentsHour>{props.time}</ContentsHour>
       </ContentsWrapper>

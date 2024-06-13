@@ -14,7 +14,7 @@ const Container = styled.div`
   border-bottom: 1px solid #ccc;
   // padding-bottom: 100px; 
   display: flex;
-  flex Direction: 'row';
+  flex-Direction: 'row';
   // border: 1px solid;
 `;
 

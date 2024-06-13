@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
+
 import { IoPersonSharp } from "react-icons/io5";
 import { MdVideoLibrary } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
@@ -13,7 +15,6 @@ const PersonIcon = styled(IoPersonSharp)`
   left: 18.94px;
   top: 78.27px;
 
-  background: url(.png);
 `;
 
 const ChannelIcon = styled(MdVideoLibrary)`
@@ -24,8 +25,6 @@ const ChannelIcon = styled(MdVideoLibrary)`
   height: 37.87px;
   left: 18.94px;
   top: 126.24px;
-
-  background: url(.png);
 
 `;
 
@@ -122,17 +121,6 @@ const HeaderId = styled.div`
 
 `;
 
-const MenuStyle = styled.div`
-  /* Group 187 */
-
-  position: absolute;
-  width: 174.21px;
-  height: 38.83px;
-  left: 18.94px;
-  top: 77.31px;
-
-`;
-
 const MenuText = styled.div`
   /* my profile */
 
@@ -176,28 +164,48 @@ const LogoutBtn = styled.button`
   border: none;
 `;
 
-export default function ProfileModal(props){
+
+const ProfileModal = ({closeModal}, props) => {
+  
+  const navigate = useNavigate();
+
+  const onClickToMyProfile = () => {
+    navigate('/my-profile');
+  };
+
+  const onClickToMyChannel = () => {
+    navigate('/my-channel');
+  };
+
+  const onClickToSetPage = () => {
+    navigate('/SetPage');
+  };
+
   return(
-    <Wrapper>
+    <Wrapper onClick={closeModal}>
       {/*Header*/}
       <Header>
         <HeaderImg>
-          <ImgStyle src={props.img}/>
+          {/* <ImgStyle src={props.img}/> */}
+          <PersonIcon/>
         </HeaderImg>
-        <HeaderName/>
-        <HeaderId/>
+        <HeaderName>ckthdud</HeaderName>
+        <HeaderId>@soy</HeaderId>
       </Header>
 
       {/*Menu*/}
-      <PersonIcon/>
+      <PersonIcon onClick={onClickToMyProfile}/>
       <MenuText>my profile</MenuText>
-      <ChannelIcon/>
-      <MenuText>my channel</MenuText>
-      <SetIcon/>
-      <MenuText>setting</MenuText>
+      <ChannelIcon onClick={onClickToMyChannel}/>
+      <MenuText style={{ top:'126.21px' }}>my channel</MenuText>
+      <SetIcon onClick={onClickToSetPage}/>
+      <MenuText style={{ top:'174.16px' }}>setting</MenuText>
 
       {/*log out button*/}
-      <LogoutText>log out</LogoutText>
+      <LogoutBtn>log out</LogoutBtn>
     </Wrapper>
   );
-}
+};
+
+
+export default ProfileModal;

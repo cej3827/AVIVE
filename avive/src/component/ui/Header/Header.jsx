@@ -5,6 +5,7 @@ import { MdNotifications } from "react-icons/md";
 import { BiSolidUserCircle } from "react-icons/bi";
 import SearchBar from "./SearchBar";
 import UploadModal from "../UploadModal";
+import ProfileModal from "../ProfileModal";
 
 const Wrapper = styled.header`
     position: fixed;
@@ -59,13 +60,21 @@ const MainTitleText = styled.p`
 `;
 
 function Header() {
-    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가 및 초기화
+    const [isModalOpen, setIsModalOpen, isProfileOpen, setIsProfileOpen] = useState(false); // 모달 상태 추가 및 초기화
     const openModal = () => {
         setIsModalOpen(true); // 모달 열기
     };
 
     const closeModal = () => {
         setIsModalOpen(false); // 모달 닫기
+    };
+
+    const openProfileModal = () => {
+        setIsProfileOpen(true);
+    };
+
+    const closeProfileModal = () => {
+        setIsProfileOpen(false);
     };
 
     return (
@@ -83,10 +92,11 @@ function Header() {
                 <Align>
                     <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
                     <MdNotifications className="icon" size="30" color="#111154"/>
-                    <BiSolidUserCircle className="icon" size="30" color="#111154"/>    
+                    <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
                 </Align>
             </Contents>
             {isModalOpen && <UploadModal closeModal={closeModal} />}
+            {isProfileOpen && <ProfileModal closeModal={closeProfileModal}/>}
         </Wrapper>
     );
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import NotificationListModalItem from "./NotificationListModalItem";
 
 import { IoMdSettings } from "react-icons/io";
+
 
 const Wrapper = styled.div`
   /* list_notification */
@@ -25,7 +27,6 @@ const ListWrapper = styled.div`
   left: 0px;
   top: 71px;
   overflow-y: scroll;
-
 
 `;
 
@@ -63,82 +64,9 @@ const SetIcon = styled(IoMdSettings)`
 
 `;
 
-const SmallHeader = styled.div`
-  /* Group 183 */
-
-  position: absolute;
-  width: 372px;
-  height: 29.36px;
-  left: 17px;
-  top: 0px;
-
-`;
-
-const NotificationContents = styled.div`
-  /* Group 184 */
-
-  position: absolute;
-  width: 383px;
-  height: 31px;
-  left: 17px;
-  top: 51px;
-
-`;
-
-const ContentsHour = styled.div`
-  /* 6 h ago */
-
-  position: absolute;
-  width: 55px;
-  height: 12px;
-  left: 345px;
-  top: 60px;
-
-  font-family: 'Jockey One';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-
-  color: #000000;
-
-
-`;
-
-const ContentsNotification = styled.div`
-  /* ckthdud post a new video ! */
-
-  position: absolute;
-  width: 232px;
-  height: 31px;
-  left: 61px;
-  top: 51px;
-
-  font-family: 'Jockey One';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-
-  color: #000000;
-
-
-`;
-
-const ContetnsProfile = styled.div`
-  /* Vector */
-
-  position: absolute;
-  width: 27.5px;
-  height: 28.33px;
-  left: 17px;
-  top: 52px;
-
-`;
+const items = [
+  {date:"Today", profile:"", content:"", time:""},
+];
 
 export default function NotificationListModal(props){
   return(
@@ -148,7 +76,9 @@ export default function NotificationListModal(props){
         <SetIcon/>
       </Header>
 
-
+      <ListWrapper>
+        {items.map((item) => <NotificationListModalItem date={item.title} profile={item.profile} content={item.content} time={item.content} />)}
+      </ListWrapper>
     </Wrapper>
   );
 }

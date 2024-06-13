@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IoPersonCircle } from "react-icons/io5"; {/* 프로필 이미지 */}
 import { IoChevronBackSharp } from "react-icons/io5"; {/*back 버튼*/}
 
+
 const Wrapper = styled.div`
   /* set_profile_image */
 
@@ -24,6 +25,20 @@ const Header = styled.div`
   left: -0.05px;
   top: 0px;
 `;
+
+const Hr = styled.hr`
+  /* Line 6 */
+
+  position: absolute;
+  width: 600px;
+  height: 0px;
+  left: -0.05px;
+  top: 56.56px;
+
+  border: 0.5px solid #B7B7B7;
+
+`;
+
 
 const BackIcon = styled(IoChevronBackSharp)`
   /* Arrow back ios */
@@ -59,18 +74,6 @@ const ModalTitle = styled.div`
 
 `;
 
-const Hr = styled.hr`
-  /* Line 6 */
-
-  position: absolute;
-  width: 600px;
-  height: 0px;
-  left: -0.05px;
-  top: 56.56px;
-
-  border: 0.5px solid #B7B7B7;
-
-`;
 
 const Button = styled.button`
   /* Rectangle 54 */
@@ -87,8 +90,9 @@ const Button = styled.button`
 `;
 
 export default function SetProfileImageModal (){
+
   return (
-    <Wrapper>
+    <Wrapper className>
       {/* Header */}
       <Header>
         <BackIcon/>

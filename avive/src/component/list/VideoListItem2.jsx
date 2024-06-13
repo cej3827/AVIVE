@@ -34,7 +34,7 @@ const VideoInfo = styled.p`
 `;
 
 
-function Video(props) {
+function VideoListItem2(props) {
   return (
     <DivStyle>
       <div style={{display:'block', flexDirection: "column", marginBottom:"1rem", padding:"0 2rem"}}>
@@ -53,4 +53,4 @@ function Video(props) {
   );
 }
 
-export default Video;
+export default VideoListItem2;
