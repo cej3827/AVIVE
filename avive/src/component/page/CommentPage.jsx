@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import { IoMdCloseCircle } from "react-icons/io";
 import styled from "styled-components";
 import CommentList from "../list/CommentList";
 import { FaArrowAltCircleUp } from "react-icons/fa";
@@ -166,7 +166,7 @@ const CommentArrayTextStyle = styled.div`
     margin: 2px;
 `;
 
-function CommentPage() {
+const CommentPage = ({ closeModal }) => {
     return(
         <Container>
             <Background>
@@ -175,6 +175,10 @@ function CommentPage() {
                         <CommentText>
                             12 commnets
                         </CommentText>
+                        <IoMdCloseCircle 
+                            onClick={closeModal}
+                            size="26px"
+                            color="white"/>
                     </TopContanier>
                     <Line/>
                     <CommentContainer>

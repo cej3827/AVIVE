@@ -177,7 +177,6 @@ function Join1() {
                                     size={18} color={infoState !== true ? "#111154" : "grey"}
                                     onClick={()=>{
                                         setinfoState(!infoState);
-                                        console.log(infoState);
                                     }}
                                 />
                                 {infoState && 
@@ -188,7 +187,7 @@ function Join1() {
                     </InputBox>
                     <LoginButton
                          onClick={() => {
-                            navigate(`/join/2`);
+                            navigate(`/join2`);
                         }}
                     >next</LoginButton>
                 </JoinBox>

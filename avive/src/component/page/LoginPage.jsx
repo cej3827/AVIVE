@@ -280,7 +280,7 @@ function LoginPage() {
                     <KakaoLogin>kakao login</KakaoLogin>
                     <CreateLoginUser
                         onClick={() => {
-                            navigate(`/join/1`);
+                            navigate(`/join1`);
                         }}
                     >Join</CreateLoginUser>
                 </LoginBox>

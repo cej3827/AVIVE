@@ -22,8 +22,9 @@ import ProfilePage from "../page/ProfilePage";
 import SetPage from "../page/SetPage";
 import UploadPage from "../page/UploadPage";
 import UploadPage2 from "../page/UploadPage2";
-import WatchPage from "../page/Home2Page";
+import WatchPage from "../page/WatchPage";
 import ScrollToTop from "../ScrollTop"
+import WatchPagePlayListModal from "./WatchPagePlayListModal";
 
 const Router = () =>{
   return (
@@ -50,7 +51,6 @@ const Router = () =>{
           <Route path="login" element={<LoginPage />} />
           <Route path="findPage/1" element={<FindPage />} />
           <Route path="findPage/2" element={<FindPage1 />} />
-          <Route path="video" element={<WatchPage />} />
           <Route path="video/:videoId" element={<WatchPage />} />
           <Route path="video/:videoId/comment" element={<CommentPage />} />
           <Route path="/my-profile" element={<ProfilePage />} />
