@@ -226,7 +226,7 @@ function Join2() {
 
     const handlePwChecked = () => {
         if(pwValue != null && pwChValue != null && pwValue == pwChValue){
-            navigate(`/join/3`);   
+            navigate(`/join3`);   
         }
         else{
             setModalOpen(true);

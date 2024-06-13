@@ -6,11 +6,12 @@ import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { MdSaveAlt } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import Comment from "../ui/Comment"
-import UserCardList from "../list/UserCardList";
+import UserCardList from "../list/UserCardList"
 import VideoList from "../list/VideoList";
 import Header from '../ui/Header/Header';
 import data from '../../data.json';
 import { useState } from "react";
+import WatchPagePlayListModal from '../ui/WatchPagePlayListModal';
 
 const Container = styled.div`
     display: grid;
@@ -115,12 +116,22 @@ const Border = styled.div`
 
 function WatchPage(props) {
     const {} = props;
+    const navigate = useNavigate();
     const { videoId } = useParams();
     const [videoInfoId, setvideoInfoId] = useState(0);
+    const [modalOpen, setModalOpen] = useState(false);
     
     const video = data.find((item) => {
         return item.id == videoId;
     });
+
+    const openModal = () => {
+        setModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setModalOpen(false); // 모달 닫기
+    };
 
     const comment = video ? (video.id) : '0' ;
 
@@ -171,7 +182,10 @@ function WatchPage(props) {
                                 <AiFillLike size={30}/>
                                 <AiFillDislike size={30}/>
                                 <IoMdShare size={30}/>
-                                <MdSaveAlt size={30}/>
+                                <MdSaveAlt
+                                    onClick={openModal}
+                                    size={30}/>
+                                    {modalOpen && <WatchPagePlayListModal closeModal={closeModal}/>}
                             </VideoIcon>
                         </VideoInfo>
                         {handleVideoInfoChecked()}
