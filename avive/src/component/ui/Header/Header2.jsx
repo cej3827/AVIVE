@@ -1,5 +1,9 @@
-
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
+import UploadModal from "../UploadModal";
+import NotificationListModal from "../NotificationListModal"
+import ProfileModal from "../ProfileModal";
+
 import { BiSolidVideoPlus } from "react-icons/bi";
 import { MdNotifications } from "react-icons/md";
 import { BiSolidUserCircle } from "react-icons/bi";
@@ -55,8 +59,41 @@ const MainTitleText = styled.p`
 
 
 function Header2() {
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가 및 초기화
+
+    const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
+    const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+
+    const outside = useRef();
+    
+    const openModal = () => {
+        setIsModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false); // 모달 닫기
+    };
+
+    const openProfileModal = () => {
+        setIsProfileModalOpen(true);
+    };
+
+    const closeProfileModal = () => {
+        setIsProfileModalOpen(false);
+    };
+
+    const openNotificationModal = () => {
+        setIsNotificationModalOpen(true);
+    };
+
+    const closeNotificationModal = () => {
+        setIsNotificationModalOpen(false);
+    };
+
     return (
-        <Wrapper>
+        <Wrapper ref={outside} 
+        onClick={ (e) => { if(e.target == outside.current) setIsProfileModalOpen(false)} } >
             <Contents>
                 <Align></Align>
 
@@ -67,11 +104,15 @@ function Header2() {
                 </Container>
                 
                 <Align>
-                    <BiSolidVideoPlus className="icon" size="30" color="#111154"/>
-                    <MdNotifications className="icon" size="30" color="#111154"/>
-                    <BiSolidUserCircle className="icon" size="30" color="#111154"/>    
+                    <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
+                    <MdNotifications className="icon" size="30" color="#111154" onClick={openNotificationModal}/>
+                    <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
                 </Align>
             </Contents>
+            {isModalOpen && <UploadModal closeModal={closeModal} />}
+            {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
+            {isProfileModalOpen  && <ProfileModal closeProfileModal={closeProfileModal}/>}
+        
         </Wrapper>
     );
 }

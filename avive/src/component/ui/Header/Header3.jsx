@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import { BiSolidVideoPlus } from "react-icons/bi";
 import { MdNotifications } from "react-icons/md";
 import { BiSolidUserCircle } from "react-icons/bi";
-import SearchBar from "./SearchBar";
 import UploadModal from "../UploadModal";
-import NotificationListModal from "../NotificationListModal"
 import ProfileModal from "../ProfileModal";
+import NotificationListModal from "../NotificationListModal";
 
 const Wrapper = styled.header`
     position: fixed;
@@ -40,27 +39,7 @@ const Align = styled.div`
     justify-content: space-evenly;
 `;
 
-const Container = styled.div`
-    display: grid;
-    margin: 5px;
-
-    p {
-        margin-bottom: 8px;
-    }
-`
-
-const MainTitleText = styled.p`
-    font-family: 'K2D';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 38px;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #111154;
-`;
-
-function Header() {
+export default function Header3() {
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가 및 초기화
 
     const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
@@ -90,31 +69,20 @@ function Header() {
     const closeNotificationModal = () => {
         setIsNotificationModalOpen(false);
     };
-
-    return (
-        <Wrapper>
-            <Contents>
-                <Align></Align>
-
-                <Container>
-                    <MainTitleText>
-                        aVive
-                    </MainTitleText>
-                    <SearchBar/>
-                </Container>
-                
-                <Align>
-                    <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
-                    <MdNotifications className="icon" size="30" color="#111154" onClick={openNotificationModal}/>
-                    <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
-                </Align>
-            </Contents>
-            {isModalOpen && <UploadModal closeModal={closeModal} />}
-            {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
-            {isProfileModalOpen  && <ProfileModal closeProfileModal={closeProfileModal}/>}
-        
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+        <Contents>
+            <Align></Align>
+              
+            <Align>
+                <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
+                <MdNotifications className="icon" size="30" color="#111154"/>
+                <BiSolidUserCircle className="icon" size="30" color="#111154"/>    
+            </Align>
+        </Contents>
+        {isModalOpen && <UploadModal closeModal={closeModal} />}
+        {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
+        {isProfileModalOpen  && <ProfileModal closeProfileModal={closeProfileModal}/>}
+    </Wrapper>
+  );
 }
-
-export default Header;
