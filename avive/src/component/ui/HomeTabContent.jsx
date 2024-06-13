@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BsFillPinFill } from "react-icons/bs";
 import CommunityItem from '../list/CommunityItem';
 import VideoListItem from '../list/VideoListItem';
+import VideoList2 from '../list/VideoList2';
 
 const HomeTabContentContainer = styled.div`
   // margin-top: 20px;
@@ -30,13 +31,18 @@ const FlagIcon = styled(BsFillPinFill)`
   margin-top: 20px;
   font-size: 18px;
   // border: 1px solid;
-  
 `;
 
 const VideosContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 1000px;
 `;
+
+// const Gradation = styled.div`
+//   height: 100%;
+//   width: 300px; 
+// `;
 
 const HomeTabContent = () => {
   // 고정된 커뮤니티
@@ -79,12 +85,12 @@ const HomeTabContent = () => {
     return (
       <Container>
         <VideosContainer>
-
+          <VideoList2 />
+          {/* <Gradation /> */}
         </VideosContainer>
       </Container>
     );
   };
-
 
   return (
     <HomeTabContentContainer>
