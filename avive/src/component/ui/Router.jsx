@@ -1,4 +1,7 @@
+import React from "react";
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+import Header from "./Header/Header";
+
 import Home1 from "../page/Home1Page";
 import Home2 from "../page/Home2Page";
 import Set from "../page/SetPage";
@@ -6,8 +9,8 @@ import Home2Full from "../page/Home2FullPage";
 import SetPersonalInformation from "../page/SetPersonalInformationPage";
 import SetNotification from "../page/SetNotificationPage";
 import CreateChannel from "../page/CreateChannelPage";
-import FindPage from "../page/FindUserPage/FindPage";
-import FindPage1 from "../page/FindUserPage/FindPage1";
+import FindPage from "../page/FindUserPage.jsx/FindPage";
+import FindPage1 from "../page/FindUserPage.jsx/FindPage1";
 import Join1 from "../page/JoinWebPage/Join1";
 import Join2 from "../page/JoinWebPage/Join2";
 import Join3 from "../page/JoinWebPage/Join3";
@@ -26,6 +29,7 @@ const Router = () =>{
   return (
     <>
       <BrowserRouter>
+
       <ScrollToTop/>
         <Routes>
           <Route path="/Home1" element={<Home1/>}/>

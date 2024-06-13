@@ -24,7 +24,7 @@ const SubsChan =[
 export default function SubsChannelList() {
   return (
     <div style={{display:'flex'}}>
-      <ul style={{display:'flex', flexDirection:'row', paddingTop:'20px'}}>
+      <ul style={{display:'flex', flexDirection:'row'}}>
         {SubsChan.map((channel) => <SubsChannel channelname={channel.channelname} />)}
       </ul>
     </div>
