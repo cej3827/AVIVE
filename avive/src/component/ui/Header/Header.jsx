@@ -5,6 +5,7 @@ import { MdNotifications } from "react-icons/md";
 import { BiSolidUserCircle } from "react-icons/bi";
 import SearchBar from "./SearchBar";
 import UploadModal from "../UploadModal";
+import NotificationListModal from "../NotificationListModal"
 import ProfileModal from "../ProfileModal";
 
 const Wrapper = styled.header`
@@ -60,7 +61,12 @@ const MainTitleText = styled.p`
 `;
 
 function Header() {
-    const [isModalOpen, setIsModalOpen, isProfileOpen, setIsProfileOpen] = useState(false); // 모달 상태 추가 및 초기화
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가 및 초기화
+
+    const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
+    const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+    
     const openModal = () => {
         setIsModalOpen(true); // 모달 열기
     };
@@ -70,11 +76,19 @@ function Header() {
     };
 
     const openProfileModal = () => {
-        setIsProfileOpen(true);
+        setIsProfileModalOpen(true);
     };
 
     const closeProfileModal = () => {
-        setIsProfileOpen(false);
+        setIsProfileModalOpen(false);
+    };
+
+    const openNotificationModal = () => {
+        setIsNotificationModalOpen(true);
+    };
+
+    const closeNotificationModal = () => {
+        setIsNotificationModalOpen(false);
     };
 
     return (
@@ -91,12 +105,14 @@ function Header() {
                 
                 <Align>
                     <BiSolidVideoPlus className="icon" size="30" color="#111154" onClick={openModal}/>
-                    <MdNotifications className="icon" size="30" color="#111154"/>
+                    <MdNotifications className="icon" size="30" color="#111154" onClick={openNotificationModal}/>
                     <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
                 </Align>
             </Contents>
             {isModalOpen && <UploadModal closeModal={closeModal} />}
-            {isProfileOpen && <ProfileModal closeModal={closeProfileModal}/>}
+            {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
+            {isProfileModalOpen  && <ProfileModal closeProfileModal={closeProfileModal}/>}
+        
         </Wrapper>
     );
 }

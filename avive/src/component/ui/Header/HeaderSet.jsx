@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoChevronBackSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   /* Group 100 */
@@ -82,9 +83,15 @@ const BackIcon = styled(IoChevronBackSharp)`
 `; */
 
 export default function HeaderSet(props){
+  const navigate = useNavigate();
+
+  const onClickToHome1 = () => {
+    navigate('/Home1');
+  };
+
   return(
     <Wrapper>
-      <Title>AVIVE</Title>
+      <Title onClick={onClickToHome1}>AVIVE</Title>
       <PageInfo>{props.name}</PageInfo>
       <BackIcon/>
     </Wrapper>

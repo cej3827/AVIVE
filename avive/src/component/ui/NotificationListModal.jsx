@@ -1,16 +1,29 @@
-import React from "react";
+import React, {useRef} from "react";
 import styled from "styled-components";
 import NotificationListModalItem from "./NotificationListModalItem";
 
 import { IoMdSettings } from "react-icons/io";
 
+const Outer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Wrapper = styled.div`
   /* list_notification */
 
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 650px;
+  top: 60px;
+  left: 1150px;
 
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -48,7 +61,7 @@ const HeaderTitle = styled.div`
   position: absolute;
   width: 135px;
   height: 29.36px;
-  left: 125px;
+  left: 160px;
   top: 13px;
 
 `;
@@ -68,17 +81,23 @@ const items = [
   {date:"Today", profile:"", content:"", time:""},
 ];
 
-export default function NotificationListModal(props){
-  return(
-    <Wrapper>
-      <Header>
-        <HeaderTitle>notification</HeaderTitle>
-        <SetIcon/>
-      </Header>
+const NotificationListModal = ({closeNotificationModal}) => {
 
-      <ListWrapper>
-        {items.map((item) => <NotificationListModalItem date={item.title} profile={item.profile} content={item.content} time={item.content} />)}
-      </ListWrapper>
-    </Wrapper>
+  return(
+    <Outer onClick={closeNotificationModal}>
+      <Wrapper onClick={(e) => e.stopPropagation()}>
+        <Header>
+          <HeaderTitle>notification</HeaderTitle>
+          <SetIcon/>
+        </Header>
+
+        <ListWrapper>
+          {items.map((item) => <NotificationListModalItem date={item.title} profile={item.profile} content={item.content} time={item.content} />)}
+        </ListWrapper>
+      </Wrapper>
+    </Outer>
+
   );
-}
+};
+
+export default NotificationListModal;
