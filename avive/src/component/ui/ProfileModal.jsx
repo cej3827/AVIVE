@@ -6,6 +6,18 @@ import { IoPersonSharp } from "react-icons/io5";
 import { MdVideoLibrary } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 
+const Outer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const PersonIcon = styled(IoPersonSharp)`
   /* Account */
 
@@ -42,13 +54,21 @@ const SetIcon = styled(IoMdSettings)`
 `;
 
 const Wrapper = styled.div`
-  /* view_profile */
-
-  position: relative;
-  width: 231px;
+  
+  /* Rectangle 59 */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 220.92px;
   height: 255px;
+  top: 60px;
+  left: 1380px;
+
+  background: #FFFFFF;
+  border-radius: 25px;
 
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 `;
 
 const Header = styled.div`
@@ -165,7 +185,7 @@ const LogoutBtn = styled.button`
 `;
 
 
-const ProfileModal = ({closeModal}, props) => {
+const ProfileModal = ({closeProfileModal}) => {
   
   const navigate = useNavigate();
 
@@ -182,28 +202,30 @@ const ProfileModal = ({closeModal}, props) => {
   };
 
   return(
-    <Wrapper onClick={closeModal}>
-      {/*Header*/}
-      <Header>
-        <HeaderImg>
-          {/* <ImgStyle src={props.img}/> */}
-          <PersonIcon/>
-        </HeaderImg>
-        <HeaderName>ckthdud</HeaderName>
-        <HeaderId>@soy</HeaderId>
-      </Header>
+      <Outer onClick={closeProfileModal}>
+        <Wrapper onClick={(e) => e.stopPropagation()}>
+          {/*Header*/}
+          <Header>
+            <HeaderImg>
+              {/* <ImgStyle src={props.img}/> */}
+              <PersonIcon/>
+            </HeaderImg>
+            <HeaderName>ckthdud</HeaderName>
+            <HeaderId>@soy</HeaderId>
+          </Header>
 
-      {/*Menu*/}
-      <PersonIcon onClick={onClickToMyProfile}/>
-      <MenuText>my profile</MenuText>
-      <ChannelIcon onClick={onClickToMyChannel}/>
-      <MenuText style={{ top:'126.21px' }}>my channel</MenuText>
-      <SetIcon onClick={onClickToSetPage}/>
-      <MenuText style={{ top:'174.16px' }}>setting</MenuText>
+          {/*Menu*/}
+          <PersonIcon onClick={onClickToMyProfile}/>
+          <MenuText>my profile</MenuText>
+          <ChannelIcon onClick={onClickToMyChannel}/>
+          <MenuText style={{ top:'126.21px' }}>my channel</MenuText>
+          <SetIcon onClick={onClickToSetPage}/>
+          <MenuText style={{ top:'174.16px' }}>setting</MenuText>
 
-      {/*log out button*/}
-      <LogoutBtn>log out</LogoutBtn>
-    </Wrapper>
+          {/*log out button*/}
+          <LogoutBtn>log out</LogoutBtn>
+        </Wrapper>
+      </Outer>
   );
 };
 

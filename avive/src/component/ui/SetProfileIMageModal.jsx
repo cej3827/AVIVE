@@ -49,7 +49,6 @@ const BackIcon = styled(IoChevronBackSharp)`
   left: 27px;
   top: 11.65px;
 
-
 `;
 
 const ProfileImage = styled(IoPersonCircle)`
