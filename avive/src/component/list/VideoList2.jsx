@@ -22,7 +22,10 @@ const UlStyle = styled.div `
   padding-top: 30px;
   margin-right: auto;
   margin-left: auto;
-  overflow: scroll;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 function VideoList2(){

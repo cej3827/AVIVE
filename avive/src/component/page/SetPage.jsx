@@ -1,6 +1,7 @@
 import React, {useState, useRef} from "react";
 import styled from "styled-components";
-import Header from "../ui/Header/Header";
+import Header2 from "../ui/Header/Header2";
+import { useNavigate } from "react-router-dom";
 
 import { IoPersonCircle } from "react-icons/io5";
 import { HiPencil } from "react-icons/hi2";
@@ -9,8 +10,8 @@ import { FaRegBell } from "react-icons/fa6";
 
 
 const ProfileIcon = styled(IoPersonCircle)`
-  width: 230px;
-  height: 230px;
+  width: 270px;
+  height: 270px;
   border-radius: 50%;
   display: block;
   margin: auto;
@@ -24,67 +25,94 @@ const PencilIcon = styled(HiPencil)`
   position: absolute;
   left: 54%;
   right: 41.95%;
-  top: 53.61%;
+  top: 427px;
   bottom: 43.39%;
-
+  color: #8A8A8A;
 `;
 
-const TextStyle = styled.span`
+const TextBtn = styled.button`
+  position:absolute;
   font-size: 30px;
   color: #111154;
   font-family: 'Jockey One';
   white-space: nowrap;
+  border: none;
+  background-color: white;
+  font-weight: 900; /* bold와 같음 */
+
 `;
 
 const LockPerson = styled(FaUserLock)`
-  width: 35px;
-  height: 35px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left:30px;
+  top:0px;
   color: #111154;
   white-space: nowrap;
 `;
 
 const BellIcon = styled(FaRegBell)`
-  width: 35px;
-  height: 35px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 30px;
+  top: 80px;
   color: #111154;
   white-space: nowrap;
 `;
 
 const Name = styled.div`
-/* ckthdud */
+  /* ckthdud */
 
-position: absolute;
-width: 293px;
-height: 42px;
-left: 780px;
-top: 437px;
+  position: absolute;
+  width: 293px;
+  height: 42px;
+  left: 780px;
+  top: 420px;
 
-font-family: 'Jockey One';
-font-style: normal;
-font-weight: 400;
-font-size: 30px;
-line-height: 56px;
-display: flex;
-align-items: center;
-text-align: center;
+  font-family: 'Jockey One';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-color: #000000;
-
+  color: #000000;
 
 `;
 
+const MenuWrapper = styled.div`
+  position: absolute;
+  width: 524px;
+  height: 141.15px;
+  left: 600px;
+  top: 600px;
+`;
+
 export default function Set() {
+  const navigate = useNavigate();
+
+  const onClickToPI = () => {
+    navigate(`/SetPersonalInfromationPage`);
+  };
+
+  const onClickToN = () => {
+    navigate('/SetNotificationPage');
+  };
 
   return (
     <div>
       {/* header */}
       <div style={{position:'fixed', display:'block', zIndex:'100', top:0, width:'100%', background:'#ffffff'}}>
-        <Header />
+        <Header2 />
         <p style={{textAlign:'center', color:'gray', fontSize:'25px', marginTop:'70px'}}>setting</p>
       </div>
 
       {/* contents 1 */}
-      <div style={{display:'grid',alignItems:'center' ,marginTop:'170px'}}>
+      <div style={{display:'grid',alignItems:'center' ,marginTop:'140px'}}>
         <ProfileIcon/> {/* 클릭 시 모달창 오픈 */}
         <div>
           <Name>ckthdud</Name>
@@ -93,17 +121,15 @@ export default function Set() {
       </div>
 
       {/* contents 2 */}
-      <div style={{position:'absolute', width: '524px', height: '141.15px',left: '570px',top: '579px'}}>
-        <div style={{display:'block', gap:'1rem'}}>
+      <MenuWrapper>
           <LockPerson/>
-          <TextStyle>personal information</TextStyle>
-        </div>
+          <TextBtn style={{ left:'120px', top:'0px' }} onClick={onClickToPI}>personal information</TextBtn>
 
         <div style={{display:'block', gap:'1rem'}}>
           <BellIcon/>
-          <TextStyle>notification</TextStyle>
+          <TextBtn style={{ left:'120px', top:'80px' }} onClick={onClickToN}>notification</TextBtn>
         </div>
-      </div>
+      </MenuWrapper>
 
     </div>
   );

@@ -19,7 +19,10 @@ const ListStyle = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px 10px 10px 10px;
-  overflow-y: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   width: 1550px;
 `;
 
@@ -40,7 +43,7 @@ function CategoryList(){
       <button style={{marginRight:"20px"}} class="button" id="10" onclick={change_btn}>etc</button>
       <button style={{marginRight:"20px"}} class="button" id="11" onclick={change_btn}>etc</button>
 
-    
+   
     </ListStyle>
   );
 }

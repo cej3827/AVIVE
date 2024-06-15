@@ -6,6 +6,8 @@ import { IoPersonSharp } from "react-icons/io5";
 import { MdVideoLibrary } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 
+import LogoutModal1 from "./LogoutModal1";
+
 const Outer = styled.div`
   position: fixed;
   top: 0;
@@ -26,7 +28,19 @@ const PersonIcon = styled(IoPersonSharp)`
   height: 37.87px;
   left: 18.94px;
   top: 78.27px;
+  color: #111154;
 
+`;
+
+
+const ProfileImg = styled.div`
+  position: absolute;
+  width: 37.87px;
+  height: 37.87px;
+  left: 18.94px;
+  top: 23px;
+
+  background-image: ("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
 `;
 
 const ChannelIcon = styled(MdVideoLibrary)`
@@ -37,6 +51,7 @@ const ChannelIcon = styled(MdVideoLibrary)`
   height: 37.87px;
   left: 18.94px;
   top: 126.24px;
+  color: #111154;
 
 `;
 
@@ -44,12 +59,12 @@ const SetIcon = styled(IoMdSettings)`
   /* Vector */
 
   position: absolute;
-  left: 10.53%;
+  left: 18.94px;
   right: 76.64%;
-  top: 70.63%;
-  bottom: 18.52%;
-
-  background: #000000;
+  top: 174.21px;
+  width: 37.87px;
+  height: 37.87px;
+  color: #111154;
 
 `;
 
@@ -60,7 +75,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: absolute;
   width: 220.92px;
-  height: 255px;
+  height: 270px;
   top: 60px;
   left: 1380px;
 
@@ -78,7 +93,7 @@ const Header = styled.div`
   width: 175.47px;
   height: 44.97px;
   left: 18.94px;
-  top: 17.67px;
+  top: 5.67px;
 
 `;
 
@@ -102,25 +117,6 @@ const HeaderName = styled.div`
 
 `;
 
-const HeaderImg = styled.div`
-  /* Vector */
-
-  position: absolute;
-  width: 38.92px;
-  height: 38.92px;
-  left: 18.94px;
-  top: 21.46px;
-
-  background: #000000;
-
-`;
-
-const ImgStyle = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 25%;
-`;
-
 const HeaderId = styled.div`
   /* @soy */
 
@@ -128,26 +124,26 @@ const HeaderId = styled.div`
   width: 124.98px;
   height: 25.25px;
   left: 69.43px;
-  top: 37.4px;
+  top: 40.4px;
 
   font-family: 'Jockey One';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   /* identical to box height */
 
-  color: #B7B7B7;
+  color: #7d7d7d;
 
 `;
 
-const MenuText = styled.div`
+const MenuText = styled.button`
   /* my profile */
 
   position: absolute;
   width: 124.98px;
   height: 35.56px;
-  left: 68.17px;
+  left: 73px;
   top: 77.31px;
 
   font-family: 'Jockey One';
@@ -159,6 +155,8 @@ const MenuText = styled.div`
   align-items: center;
 
   color: #000000;
+  border: none;
+  background-color: white;
 
 `;
 
@@ -168,8 +166,8 @@ const LogoutBtn = styled.button`
   position: absolute;
   width: 124.98px;
   height: 25.25px;
-  left: 47.97px;
-  top: 218.7px;
+  left: 49.97px;
+  top: 227.7px;
 
   font-family: 'Jockey One';
   font-style: normal;
@@ -179,7 +177,7 @@ const LogoutBtn = styled.button`
   /* identical to box height */
   text-align: center;
 
-  color: #BBBBBB;
+  color: #7d7d7d;
   background-color: white;
   border: none;
 `;
@@ -198,7 +196,17 @@ const ProfileModal = ({closeProfileModal}) => {
   };
 
   const onClickToSetPage = () => {
-    navigate('/SetPage');
+    navigate('/Set');
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+    
+  const openModal = () => {
+      setIsModalOpen(true); // 모달 열기
+  };
+
+  const closeModal = () => {
+      setIsModalOpen(false); // 모달 닫기
   };
 
   return(
@@ -206,25 +214,34 @@ const ProfileModal = ({closeProfileModal}) => {
         <Wrapper onClick={(e) => e.stopPropagation()}>
           {/*Header*/}
           <Header>
-            <HeaderImg>
-              {/* <ImgStyle src={props.img}/> */}
+            {/* <HeaderImg>
               <PersonIcon/>
-            </HeaderImg>
+            </HeaderImg> */}
+            <ProfileImg>
+              
+            </ProfileImg>
             <HeaderName>ckthdud</HeaderName>
             <HeaderId>@soy</HeaderId>
           </Header>
 
           {/*Menu*/}
-          <PersonIcon onClick={onClickToMyProfile}/>
-          <MenuText>my profile</MenuText>
-          <ChannelIcon onClick={onClickToMyChannel}/>
-          <MenuText style={{ top:'126.21px' }}>my channel</MenuText>
-          <SetIcon onClick={onClickToSetPage}/>
-          <MenuText style={{ top:'174.16px' }}>setting</MenuText>
+          <div onClick={onClickToMyProfile}>
+            <PersonIcon/>
+            <MenuText>my profile</MenuText>
+          </div>
+          <div onClick={onClickToMyChannel}>
+            <ChannelIcon/>
+            <MenuText style={{ top:'126.21px' }}>my channel</MenuText>
+          </div>
+          <div onClick={onClickToSetPage}>
+            <SetIcon/>
+            <MenuText style={{ top:'174.16px' }}>setting</MenuText>
+          </div>
 
           {/*log out button*/}
-          <LogoutBtn>log out</LogoutBtn>
+          <LogoutBtn onClick={openModal}>log out</LogoutBtn>
         </Wrapper>
+        {isModalOpen && <LogoutModal1 closeModal={closeModal} />}
       </Outer>
   );
 };

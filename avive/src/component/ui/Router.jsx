@@ -22,7 +22,7 @@ import ProfilePage from "../page/ProfilePage";
 import SetPage from "../page/SetPage";
 import UploadPage from "../page/UploadPage";
 import UploadPage2 from "../page/UploadPage2";
-import WatchPage from "../page/Home2Page";
+import WatchPage from "../page/WatchPage";
 import ScrollToTop from "../ScrollTop"
 
 const Router = () =>{

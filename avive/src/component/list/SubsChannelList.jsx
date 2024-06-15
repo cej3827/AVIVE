@@ -2,6 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import SubsChannel from "./SubsChannel";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x:auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const SubsChan =[
   {channelname:"ckthdud"},
   {channelname:"hyewon"},
@@ -23,11 +32,9 @@ const SubsChan =[
 
 export default function SubsChannelList() {
   return (
-    <div style={{display:'flex'}}>
-      <ul style={{display:'flex', flexDirection:'row'}}>
-        {SubsChan.map((channel) => <SubsChannel channelname={channel.channelname} />)}
-      </ul>
-    </div>
+    <Wrapper>
+      {SubsChan.map((channel) => <SubsChannel channelname={channel.channelname} />)}
+    </Wrapper>
   );
 }
 
