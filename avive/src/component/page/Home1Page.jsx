@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SearchBar from "../ui/Header/SearchBar";
 import Header3 from "../ui/Header/Header3";
-import { TfiAngleDoubleUp } from "react-icons/tfi";
 import { CgChevronDoubleUp } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 

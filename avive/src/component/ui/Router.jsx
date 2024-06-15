@@ -30,8 +30,9 @@ const Router = () =>{
     <>
       <BrowserRouter>
 
-      <ScrollToTop/>
+        <ScrollToTop/>
         <Routes>
+          <Route index element={<Home1/>} />
           <Route path="/Home1" element={<Home1/>}/>
           <Route path="/Home2" element={<Home2/>}/>
           <Route path="/Home2Full" element={<Home2Full/>}/>
