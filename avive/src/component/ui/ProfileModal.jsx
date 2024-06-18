@@ -199,14 +199,14 @@ const ProfileModal = ({closeProfileModal}) => {
     navigate('/Set');
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     
-  const openModal = () => {
-      setIsModalOpen(true); // 모달 열기
+  const openLogoutModal = () => {
+      setIsLogoutModalOpen(true); // 모달 열기
   };
 
-  const closeModal = () => {
-      setIsModalOpen(false); // 모달 닫기
+  const closeLogoutModal = () => {
+      setIsLogoutModalOpen(false); // 모달 닫기
   };
 
   return(
@@ -239,9 +239,9 @@ const ProfileModal = ({closeProfileModal}) => {
           </div>
 
           {/*log out button*/}
-          <LogoutBtn onClick={openModal}>log out</LogoutBtn>
+          <LogoutBtn onClick={openLogoutModal}>log out</LogoutBtn>
         </Wrapper>
-        {isModalOpen && <LogoutModal1 closeModal={closeModal} />}
+        {isLogoutModalOpen && <LogoutModal1 closeLogoutModal={closeLogoutModal} />}
       </Outer>
   );
 };

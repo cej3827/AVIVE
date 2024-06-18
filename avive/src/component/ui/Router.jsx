@@ -47,7 +47,6 @@ const Router = () =>{
           <Route path="/DashBoardPage" element={<DashBoardPage/>}/>
           <Route path="/SetNotificationPage" element={<SetNotification/>}/>
           <Route path="/SetPage" element={<SetPage/>}/>
-          <Route path="/SetPersonalInfromationPage" element={<SetPersonalInformation/>}/>
           <Route path="login" element={<LoginPage />} />
           <Route path="findPage/1" element={<FindPage />} />
           <Route path="findPage/2" element={<FindPage1 />} />

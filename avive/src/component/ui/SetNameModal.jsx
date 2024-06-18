@@ -1,6 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
+const Outer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Wrapper = styled.div`
   /* set_name */
 
@@ -31,10 +43,10 @@ const Hr = styled.hr`
   width: 600px;
   height: 0px;
   left: -0.05px;
-  top: 56.56px;
+  top: 47px;
 
-  border: 0.5px solid #B7B7B7;
-
+  color: #cccccc;
+  height: 0.05px;
 `;
 
 const ModalTitle = styled.div`
@@ -44,8 +56,12 @@ const ModalTitle = styled.div`
   width: 425.95px;
   height: 44.97px;
   left: 86px;
-  top: 0px;
+  top: 7px;
 
+  font-size: 30px;
+  color: #B2B2E0;
+  text-align: center;
+  align-items: center;
 `;
 
 const Button = styled.button`
@@ -60,6 +76,9 @@ const Button = styled.button`
   background: #F2F2F2;
   border-radius: 10px;
   text-align: center;
+
+  border: none;
+  font-size: 18px;
 `;
 
 const NameUnderLine = styled.hr`
@@ -71,8 +90,8 @@ const NameUnderLine = styled.hr`
   left: 88px;
   top: 127px;
 
-  border: 1px solid #ADADAD;
-
+  color: #cccccc;
+  height: 0.5px;
 `;
 
 const NameText = styled.div`
@@ -81,7 +100,7 @@ const NameText = styled.div`
   position: absolute;
   width: 147px;
   height: 39px;
-  left: 221px;
+  left: 250px;
   top: 86px;
 
   font-family: 'Jockey One';
@@ -98,17 +117,22 @@ const NameText = styled.div`
 
 `;
 
-export default function SetNameModal(props){
+const SetNameModal = ({closeNameModal}) => {
+  
   return(
-    <Wrapper>
-      <Header>
-        <ModalTitle>name</ModalTitle>
-        <Hr/>
-      </Header>
+    <Outer onClick={closeNameModal}>
+      <Wrapper onClick={(e) => e.stopPropagation()}>
+        <Header>
+          <ModalTitle>name</ModalTitle>
+          <Hr/>
+        </Header>
 
-      <NameText>{props.name}</NameText>
-      <NameUnderLine/>
-      <Button>ok</Button>
-    </Wrapper>
+        <NameText>name</NameText>
+        <NameUnderLine/>
+        <Button onClick={closeNameModal}>ok</Button>
+      </Wrapper>
+    </Outer>
   );
-}
+};
+
+export default SetNameModal;

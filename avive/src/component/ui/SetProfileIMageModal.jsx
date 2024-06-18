@@ -3,6 +3,17 @@ import styled from "styled-components";
 import { IoPersonCircle } from "react-icons/io5"; {/* 프로필 이미지 */}
 import { IoChevronBackSharp } from "react-icons/io5"; {/*back 버튼*/}
 
+const Outer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Wrapper = styled.div`
   /* set_profile_image */
@@ -52,7 +63,7 @@ const BackIcon = styled(IoChevronBackSharp)`
 `;
 
 const ProfileImage = styled(IoPersonCircle)`
-  /* Account circle */
+  /* Account circle */ 
 
   position: absolute;
   width: 300px;
@@ -88,21 +99,25 @@ const Button = styled.button`
   text-align: center;
 `;
 
-export default function SetProfileImageModal (){
+const SetProfileImageModal = ({closeImgModal}) => {
 
   return (
-    <Wrapper className>
-      {/* Header */}
-      <Header>
-        <BackIcon/>
-        <ModalTitle>profile image</ModalTitle>
-        <Hr/>
-      </Header>
+    <Outer onClick={closeImgModal}>
+      <Wrapper>
+        {/* Header */}
+        <Header>
+          <BackIcon/>
+          <ModalTitle>profile image</ModalTitle>
+          <Hr/>
+        </Header>
 
-      {/* Contents */}
-      <ProfileImage/>
-      <Button> basic image </Button>
-      <Button> upload </Button>
-    </Wrapper>
+        {/* Contents */}
+        <ProfileImage/>
+        <Button> basic image </Button>
+        <Button> upload </Button>
+      </Wrapper>
+    </Outer>
   );
-}
+};
+
+export default SetProfileImageModal;

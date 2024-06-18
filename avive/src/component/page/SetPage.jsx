@@ -1,13 +1,16 @@
+import SetProfileImageModal from "../ui/SetProfileIMageModal";
 import React, {useState, useRef} from "react";
+import SetNameModal from "../ui/SetNameModal";
+
 import styled from "styled-components";
 import Header2 from "../ui/Header/Header2";
 import { useNavigate } from "react-router-dom";
+
 
 import { IoPersonCircle } from "react-icons/io5";
 import { HiPencil } from "react-icons/hi2";
 import { FaUserLock } from "react-icons/fa";
 import { FaRegBell } from "react-icons/fa6";
-
 
 const ProfileIcon = styled(IoPersonCircle)`
   width: 270px;
@@ -103,6 +106,26 @@ export default function Set() {
     navigate('/SetNotificationPage');
   };
 
+  const [isNameModalOpen, setIsNameModalOpen] = useState(false);
+    
+  const openNameModal = () => {
+      setIsNameModalOpen(true); // 모달 열기
+  };
+
+  const closeNameModal = () => {
+      setIsNameModalOpen(false); // 모달 닫기
+  };
+
+  const [isImgModalOpen, setIsImgModalOpen] = useState(false);
+
+  const openImgModal = () => {
+    setIsImgModalOpen(true);
+  };
+
+  const closeImgModal = () => {
+    setIsImgModalOpen(false);
+  };
+
   return (
     <div>
       {/* header */}
@@ -113,24 +136,27 @@ export default function Set() {
 
       {/* contents 1 */}
       <div style={{display:'grid',alignItems:'center' ,marginTop:'140px'}}>
-        <ProfileIcon/> {/* 클릭 시 모달창 오픈 */}
+        <ProfileIcon onClick={openImgModal} /> {/* 클릭 시 모달창 오픈 */}
         <div>
           <Name>ckthdud</Name>
-          <PencilIcon />
+          <PencilIcon onClick={openNameModal}/>
         </div>
+
       </div>
 
       {/* contents 2 */}
       <MenuWrapper>
           <LockPerson/>
-          <TextBtn style={{ left:'120px', top:'0px' }} onClick={onClickToPI}>personal information</TextBtn>
+          <TextBtn style={{ left:'100px', top:'0px' }} onClick={onClickToPI}>personal information</TextBtn>
 
         <div style={{display:'block', gap:'1rem'}}>
           <BellIcon/>
-          <TextBtn style={{ left:'120px', top:'80px' }} onClick={onClickToN}>notification</TextBtn>
+          <TextBtn style={{ left:'100px', top:'80px' }} onClick={onClickToN}>notification</TextBtn>
         </div>
       </MenuWrapper>
 
+      {isImgModalOpen && <SetProfileImageModal closeModal={closeImgModal}/>}
+      {isNameModalOpen && <SetNameModal closeNameModal={closeNameModal} />}
     </div>
   );
 }
