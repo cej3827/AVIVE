@@ -99,11 +99,11 @@ export default function Set() {
   const navigate = useNavigate();
 
   const onClickToPI = () => {
-    navigate(`/SetPersonalInfromationPage`);
+    navigate(`/SetPersonalInfromation`);
   };
 
   const onClickToN = () => {
-    navigate('/SetNotificationPage');
+    navigate('/SetNotification');
   };
 
   const [isNameModalOpen, setIsNameModalOpen] = useState(false);

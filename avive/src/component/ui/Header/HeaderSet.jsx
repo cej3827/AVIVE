@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Wrapper = styled.div`
   /* Group 100 */
   position: absolute;
-  width: 1280px;
+  width: 100%;
   height: 80px;
   left: 0px;
   top: 8px;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   border-bottom: 0.5px solid #B7B7B7;
 `;
 
-const Title = styled.span`
+const Title = styled.button`
 
   /* AVIVE */
 
@@ -23,7 +23,7 @@ const Title = styled.span`
   width: 108px;
   height: 36px;
   left: 700px;
-  top: 47px;
+  top: 25px;
 
   font-family: 'Jockey One';
   font-style: normal;
@@ -36,6 +36,9 @@ const Title = styled.span`
 
   color: #111154;
 
+  border: none;
+  background-color: white;
+
 `;
 
 const PageInfo = styled.span`
@@ -45,7 +48,7 @@ const PageInfo = styled.span`
   width: 350px;
   height: 29.36px;
   left: 830px;
-  top: 46px;
+  top: 25px;
 
   font-family: 'Jockey One';
   font-style: normal;
@@ -68,7 +71,7 @@ const BackIcon = styled(IoChevronBackSharp)`
   width: 30px;
   height: 30px;
   left: 21px;
-  top: 46px;
+  top: 25px;
 `;
 
 /* const Line = styled.div`
