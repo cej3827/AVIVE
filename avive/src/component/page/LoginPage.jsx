@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
 import { IoEyeSharp } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import {KAKAO_AUTH_URL} from "../KakaoLogin";
 
 const Wrapper = styled.div`
     display: flex;
@@ -139,7 +140,7 @@ const LoginFindText = styled.div`
     color: #747474;
 `;
 
-const KakaoLogin = styled.div`
+const KakaoLoginButton = styled.div`
     box-sizing: border-box;
     width: 360px;
     height: 42px;
@@ -147,6 +148,8 @@ const KakaoLogin = styled.div`
     background: #F1D900;
     border: 1.2px solid #F1D900;
     border-radius: 4px;
+
+    cursor: pointer;
 
     && {
         font-family: 'Alata';
@@ -233,7 +236,7 @@ function LoginPage() {
             );
         }
     }
-      
+
     return(
         <Wrapper>
             <AVIVETITLE>AIVIVE</AVIVETITLE>
@@ -277,7 +280,7 @@ function LoginPage() {
                         >Forget Password</LoginFindText>
                     </LoginFindContainer>
                     <Line/>
-                    <KakaoLogin>kakao login</KakaoLogin>
+                    <KakaoLoginButton onClick={() => window.location.href = KAKAO_AUTH_URL}>kakao login</KakaoLoginButton>
                     <CreateLoginUser
                         onClick={() => {
                             navigate(`/join1`);
