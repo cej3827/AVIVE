@@ -25,6 +25,7 @@ import UploadPage2 from "../page/UploadPage2";
 import WatchPage from "../page/WatchPage";
 import ScrollToTop from "../ScrollTop"
 import WatchPagePlayListModal from "./WatchPagePlayListModal";
+import Redirection from "../page/Redirection";
 
 const Router = () =>{
   return (
@@ -57,6 +58,7 @@ const Router = () =>{
           <Route path="/my-channel" element={<ChannelPage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/upload2" element={<UploadPage2 />} />
+          <Route path='/oauth/kakao/callback' element={<Redirection />} />
         </Routes>
       </BrowserRouter>
     </>
