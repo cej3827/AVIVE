@@ -1,7 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
+import styled from "styled-components";
 // import { IoChevronBackSharp } from "react-icons/io5"; {/*back 버튼*/}
+import { IoIosClose } from "react-icons/io";
 import { IoPersonCircle } from "react-icons/io5"; {/* 프로필 이미지 */}
 
 const Outer = styled.div`
@@ -22,6 +24,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 600px;
   height: 600px;
+  z-index: 2;
 
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -74,6 +77,15 @@ const ProfileImage = styled(IoPersonCircle)`
 
 `;
 
+const CloseIcon = styled(IoIosClose)`
+
+  position: absolute;
+  width: 25px;
+  height: 29.12px;
+  left: 554px;
+  top: 10px;
+`;
+
 const ModalTitle = styled.div`
   /* Group 18 */
 
@@ -102,13 +114,33 @@ const Button = styled.button`
   border: none;
   /* color: white; */
   font-size: 20px;
+  cursor: pointer;
+`;
+
+const HiddenInput = styled.input`
+    display: none;
 `;
 
 const SetProfileImageModal = ({closeImgModal}) => {
 
+  const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    console.log('Selected file:', file);
+    navigate("/upload", { state : file });
+    // navigate('/upload');
+  };
+
+  const handleUploadButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <Outer onClick={closeImgModal}>
-      <Wrapper onClick={(e) => e.stopPropagation()}>
+      <Wrapper>
+
         {/* Header */}
         <Header>
           <ModalTitle>profile image</ModalTitle>
@@ -118,7 +150,9 @@ const SetProfileImageModal = ({closeImgModal}) => {
         {/* Contents */}
         <ProfileImage/>
         <Button> basic image </Button>
-        <Button style={{marginTop:'80px'}}> upload </Button>
+        <Button style={{marginTop:'80px'}} onClick={handleUploadButtonClick}> upload </Button>
+        <HiddenInput type="file" accept=".mp4" ref={fileInputRef} onChange={handleFileInputChange} />
+        <CloseIcon onClick={closeImgModal}/>
       </Wrapper>
     </Outer>
   );

@@ -1,6 +1,7 @@
-import SetProfileImageModal from "../ui/SetProfileIMageModal";
 import React, {useState, useRef} from "react";
 import SetNameModal from "../ui/SetNameModal";
+import SetProfileImageModal from "../ui/SetProfileIMageModal";
+
 import SetPersonalInformation from "./SetPersonalInformationPage";
 import SetNotification from "./SetNotificationPage";
 
@@ -21,6 +22,7 @@ const ProfileIcon = styled(IoPersonCircle)`
   display: block;
   margin: auto;
   color: #111154;
+  cursor: pointer;
 `;
 
 const PencilIcon = styled(HiPencil)`
@@ -33,6 +35,7 @@ const PencilIcon = styled(HiPencil)`
   top: 427px;
   bottom: 43.39%;
   color: #8A8A8A;
+  cursor: pointer;
 `;
 
 const TextBtn = styled.button`
@@ -44,6 +47,7 @@ const TextBtn = styled.button`
   border: none;
   background-color: white;
   font-weight: 900; /* bold와 같음 */
+  cursor: pointer;
 
 `;
 
@@ -143,10 +147,7 @@ export default function Set() {
           <Name>ckthdud</Name>
           <PencilIcon onClick={openNameModal}/>
         </div>
-        {isNameModalOpen && <SetNameModal closeNameModal={closeNameModal} />}
-
       </div>
-      {isImgModalOpen && <SetProfileImageModal closeModal={closeImgModal}/>}
 
 
       {/* contents 2 */}
@@ -161,6 +162,9 @@ export default function Set() {
           <TextBtn style={{ left:'100px', top:'80px' }} onClick={onClickToNotification}>notification</TextBtn>
         </div>
       </MenuWrapper>
+
+      {isImgModalOpen && <SetProfileImageModal closeModal={closeImgModal}/>}
+      {isNameModalOpen && <SetNameModal closeNameModal={closeNameModal} />}
 
     </div>
   );

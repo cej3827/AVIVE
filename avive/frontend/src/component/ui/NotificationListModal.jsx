@@ -2,7 +2,6 @@ import React, {useRef} from "react";
 import styled from "styled-components";
 import NotificationListModalItem from "./NotificationListModalItem";
 import { useNavigate } from "react-router-dom";
-
 import { IoMdSettings } from "react-icons/io";
 
 const Outer = styled.div`
@@ -53,7 +52,6 @@ const Header = styled.div`
   left: 0px;
   top: 0px;
 
-
 `;
 
 const HeaderTitle = styled.div`
@@ -80,7 +78,7 @@ const SetIcon = styled(IoMdSettings)`
 `;
 
 const items = [
-  {date:"Today", profile:"", content:"", time:""},
+  {date:"2024-08-01", profile:"", content:"ckthdud post a new video!", time:"7h ago"},
 ];
 
 const NotificationListModal = ({closeNotificationModal}) => {
@@ -100,7 +98,7 @@ const NotificationListModal = ({closeNotificationModal}) => {
         </Header>
 
         <ListWrapper>
-          {items.map((item) => <NotificationListModalItem date={item.title} profile={item.profile} content={item.content} time={item.content} />)}
+          {items.map((item) => <NotificationListModalItem date={item.title} profile={item.profile} content={item.content} time={item.time} />)}
         </ListWrapper>
       </Wrapper>
     </Outer>
