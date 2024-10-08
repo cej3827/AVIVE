@@ -6,9 +6,8 @@ import { HiSearch } from "react-icons/hi";
 const SearchContainer = styled.div`
   width: 856px;
   height: 28px;
-  position: relative;
+  position: absolute;
   border-radius: 20px;
-  margin: 2px;
   background-color: #111154;
 
   svg {
@@ -24,10 +23,11 @@ const SearchContainer = styled.div`
 const Search = styled.input`
     border-radius: 20px;
     border: 0;
-    background-color: white;
-    width: 92%;
-    height: 70%;
+    background-color: #ffffff;
+    width: 800px;
+    height: 20px;
     outline: none;
+    padding: auto ;
 `;
 
 function SearchBar() {
@@ -45,20 +45,23 @@ function SearchBar() {
   };
 
     return (
-      <SearchContainer onSubmit={handleSearch}>
+      // searchbar outer with search icon
+      <SearchContainer onSubmit={handleSearch} >
+
+        {/* input */}
         <form>
-          {/* input */}
           <Search 
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder=" Let's Search ...!"
           />
-          {/* search button */}
-          <HiSearch color="#ffffff" size="28" type="submit"/>
+          {/* search icon */}
+          <HiSearch color="#ffffff" size="28" type="submit" style={{padding:'auto 30% auto 70%'}}/>
         </form>
+
+        {/* elasticsearch mapping */}
         <div>
-          {/* elasticsearch mapping */}
           {results.map((result, index) => (
               <div key={index}>
                 <h2>{result._source.title}</h2>

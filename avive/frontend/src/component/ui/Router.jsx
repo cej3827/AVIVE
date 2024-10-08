@@ -23,7 +23,8 @@ import SetPage from "../page/SetPage";
 import UploadPage from "../page/UploadPage";
 import UploadPage2 from "../page/UploadPage2";
 import WatchPage from "../page/WatchPage";
-import ScrollToTop from "../ScrollTop"
+import ScrollToTop from "../ScrollTop";
+import TestPage from "../page/TestPage";
 
 const Router = () =>{
   return (
@@ -57,6 +58,7 @@ const Router = () =>{
           <Route path="/my-channel" element={<ChannelPage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/upload2" element={<UploadPage2 />} />
+          <Route path="/test" element={<TestPage/>}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -25,8 +25,8 @@ const Wrapper = styled.header`
 
 const Contents = styled.div`
     display: flex;
-    width: 96%;
-    max-width: 92%;
+    width: 100%;
+    max-width: 100%;
     height: 100%;
     margin: 0 auto;
     align-items: center;
@@ -110,7 +110,6 @@ function Header() {
                     <MainTitleText onClick={onClickToHome}>
                         aVive
                     </MainTitleText>
-                    <SearchBar/>
                 </Container>
                 
                 <Align>
@@ -118,6 +117,8 @@ function Header() {
                     <MdNotifications className="icon" size="30" color="#111154" onClick={openNotificationModal}/>
                     <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
                 </Align>
+
+                <SearchBar style={{margin:'70%'}}/>
             </Contents>
             {isModalOpen && <UploadModal closeModal={closeModal} />}
             {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
