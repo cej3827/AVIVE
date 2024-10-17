@@ -2,40 +2,43 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const TabBarContainer = styled.div`
-  position: absolute;
-  width: 1000px;
-  height: 35px;
-  left: 180px;
-  top: 330px;
+  position: relative;
+  // position: absolute;
+  width: 50vw;
+  height: 5vh;
+  left: 12vw;
+  top: 2.6vh;
+  // border: 1px solid;
 `;
 
 const TabButton = styled.button`
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background-color: ${({ active }) => (active ? '#111154' : '#fff')};
   color: ${({ active }) => (active ? '#fff' : '#000')};
   border: none;
-  border-radius: 75px;
+  border-radius: 4rem;
   cursor: pointer;
-  width: 180px;
-  height: 40px; 
-  font-size: 16px;
+  width: 11.25rem;
+  height: 2.5rem; 
+  font-size: 1rem;
 `;
 
 const ContentContainer = styled.div`
-  position: absolute;
-  width: 1000px;
-  height: 500px;
-  left: 200px;
-  top: 380px;
+  position: relative;
+  width: 70vw;
+  // height: 500px;
+  left: 14vw;
+  // top: 21.5vw;
+  // border: 1px solid;
 `;
 
 const HorizontalLine = styled.div`
-  width: 1013px;
-  height: 4px;
+  position: relative; 
+  width: 70vw;
+  height: 0.25rem;
   background: #111154;
-  position: absolute;
-  left: 200px;
-  top: 366px;
+  left: 12.5rem;
+  // top: 19.3rem;
 `;
 
 function TabBar({ tabs }) {

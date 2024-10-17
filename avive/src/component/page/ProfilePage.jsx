@@ -8,6 +8,7 @@ import Header from "../ui/Header/Header";
 import PlaylistList from '../list/PlaylistList';
 import VideoTabContent from "../ui/VideoTabContent";
 import VideoList from "../list/VideoList";
+import data from '../../data.json';
 
   const playlists = [
     {
@@ -55,9 +56,10 @@ function ProfilePage(props) {
 
     const tabs = [
         { key: 'playlist', label: 'Playlist', content: <PlaylistList playlists={playlists} /> },
-        { key: 'history', label: 'History', content: <VideoList /> },
-        { key: 'likes', label: 'Likes', content: <VideoList /> },
-        { key: 'clip', label: 'Clip', content: <VideoList /> }
+        { key: 'history', label: 'History', content: <VideoList videos={data}></VideoList> },
+        { key: 'likes', label: 'Likes', content: <VideoList videos={data}></VideoList> },
+        { key: 'clip', label: 'Clip', content: <VideoList videos={data}></VideoList> },
+
     ];
 
     return (

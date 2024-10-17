@@ -1,48 +1,59 @@
-import React from "react";
 import styled from "styled-components";
 import SubscribeButton from "./SubscribeButton";
 import ProfileButton from "./ProfileButton";
 
 const ChannelInfoContainer = styled.div`
   display: flex;
-  position: absolute;
-  width: 1000px;
-  height: 130px;
-  left: 180px;
-  top: 120px;
-  padding: 40px;
+  position: relative;
+  align-items: center;
+  width: 65%;
+  height: 15%;
+  left: 80px;
+  top: 17%;
+  // padding: 2%;
+  margin-left: 13%;
+  margin-top: 10%;
   // border: 1px solid #ccc;
 `;
 
 const ProfileImage = styled.img`
-  // position: absolute;
   width: 130px;
   height: 130px;
-  // left: 23px;
-  // top: 100px;
   border-radius: 50%;
-  margin-right: 20px;
-
+  margin-right: 2%;
   background: #D9D9D9;
-
 `;
 
 const ProfileInfo = styled.div`
     flex-grow: 1;
-    margin: 15px;
-    display: flex;
+    margin-left: 2%;
     flex-direction: column;
     // justify-content: space-between;
     // border: solid 1px;
 `;
 
 const ChannelName = styled.div`
-    // flex-direction: row;
-    margin-bottom: 5px;
     display: flex;
+    height: 40%;
+    // width: 100%;
+    // margin-bottom: 5px;
     // align-items: center;
     font-size: 25px;
     // border: solid 1px;
+`;
+
+const SubscriberCount = styled.span`
+  margin: 10px;
+  font-size: 15px;
+  color: #666;
+  // margin-right: 300px;
+`;
+
+const VerticalLine = styled.div`
+  width: 4px;
+  height: 35px;
+  background-color: #ccc;
+  margin: 0 20px;
 `;
 
 const ChannelId = styled.p`
@@ -59,20 +70,6 @@ const ChannelIntro = styled.p`
 
 `;
 
-const SubscriberCount = styled.span`
-  margin: 10px;
-  font-size: 15px;
-  color: #666;
-  margin-right: 300px;
-`;
-
-const VerticalLine = styled.div`
-  width: 4px;
-  height: 35px;
-  background-color: #ccc;
-  margin: 0 20px;
-`;
-
 
 function ChannelInfo(props) {
     // const { value, onChange } = props;
@@ -82,7 +79,7 @@ function ChannelInfo(props) {
         <ChannelInfoContainer>
           <ProfileImage src={profileImageSrc} alt="프로필 사진" />
           <ProfileInfo>
-            <ChannelName> 
+            <ChannelName>
               {channelName}
               <VerticalLine />
               <SubscriberCount>{subscriberCount}</SubscriberCount>
@@ -95,6 +92,5 @@ function ChannelInfo(props) {
           </ProfileInfo>
         </ChannelInfoContainer>
       );
-}
-
-export default ChannelInfo;
+  }
+  export default ChannelInfo;

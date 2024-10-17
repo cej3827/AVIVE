@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ChannelInfo from "../ui/ChannelInfo";
 import TabBar from "../ui/TabBar";
 import Header from "../ui/Header/Header";
 import SubscriptionButton from "../ui/SubscribeButton";
-
 import CommunityList from '../list/CommunityList';
 import PlaylistList from '../list/PlaylistList';
 import HomeTabContent from "../ui/HomeTabContent";
 import VideoTabContent from "../ui/VideoTabContent";
+import ChannelInfo from "../ui/ChannelInfo";
 
 const communities = [
     { 
@@ -53,19 +52,20 @@ const communities = [
     },
   ];
 
-
 const Wrapper = styled.div`
     padding: 16px;
     width: calc(100% - 32px);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
+    // border: 3px solid #ccc;
 `;
 
 const Container = styled.div`
-    width: 100%;
-    max-width: 720px;
+    // width: 100%;
+    // max-width: 720px;
+    // border: 10px solid #ccc;
 
     :not(:last-child) {
         margin-bottom: 16px;
@@ -74,9 +74,9 @@ const Container = styled.div`
 
 const ErrorMessage = styled.div`
   color: #8989A4;
-  font-size: 50px;
+  font-size: 3.125rem;
   text-align: center;
-  margin-top: 300px;
+  margin-top: 18.75rem;
 `;
 
 function ChannelPage(props) {

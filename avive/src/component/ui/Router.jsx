@@ -1,4 +1,7 @@
+import React from "react";
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+import Header from "./Header/Header";
+
 import Home1 from "../page/Home1Page";
 import Home2Page from "../page/Home2Page";
 import Set from "../page/SetPage";
@@ -6,8 +9,8 @@ import Home2Full from "../page/Home2FullPage";
 import SetPersonalInformation from "../page/SetPersonalInformationPage";
 import SetNotification from "../page/SetNotificationPage";
 import CreateChannel from "../page/CreateChannelPage";
-import FindPage from "../page/FindUserPage/FindPage";
-import FindPage1 from "../page/FindUserPage/FindPage1";
+import FindPage from "../page/FindUserPage.jsx/FindPage";
+import FindPage1 from "../page/FindUserPage.jsx/FindPage1";
 import Join1 from "../page/JoinWebPage/Join1";
 import Join2 from "../page/JoinWebPage/Join2";
 import Join3 from "../page/JoinWebPage/Join3";
@@ -19,13 +22,16 @@ import ProfilePage from "../page/ProfilePage";
 import SetPage from "../page/SetPage";
 import UploadPage from "../page/UploadPage";
 import UploadPage2 from "../page/UploadPage2";
-import WatchPage from "../page/Home2Page";
+import WatchPage from "../page/WatchPage";
 import ScrollToTop from "../ScrollTop"
+import WatchPagePlayListModal from "./WatchPagePlayListModal";
+import Redirection from "../page/Redirection";
 
 const Router = () =>{
   return (
     <>
       <BrowserRouter>
+
       <ScrollToTop/>
         <Routes>
           <Route path="/Home1" element={<Home1/>}/>
@@ -46,13 +52,13 @@ const Router = () =>{
           <Route path="login" element={<LoginPage />} />
           <Route path="findPage/1" element={<FindPage />} />
           <Route path="findPage/2" element={<FindPage1 />} />
-          <Route path="video" element={<WatchPage />} />
           <Route path="video/:videoId" element={<WatchPage />} />
           <Route path="video/:videoId/comment" element={<CommentPage />} />
           <Route path="/my-profile" element={<ProfilePage />} />
           <Route path="/my-channel" element={<ChannelPage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/upload2" element={<UploadPage2 />} />
+          <Route path='/oauth/kakao/callback' element={<Redirection />} />
         </Routes>
       </BrowserRouter>
     </>

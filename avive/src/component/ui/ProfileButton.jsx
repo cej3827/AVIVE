@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
 const Button = styled.button`
-  display: inline-flex;
+  display: flex;
   width: 180px;
   height: 40px;
   align-items: center;

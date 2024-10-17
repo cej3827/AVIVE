@@ -84,12 +84,22 @@ const CommentArrayTextStyle = styled.div`
 
 const ModalCss = styled.div`
     position: absolute;
+    background-color: red;
     z-index: 999;  
 `;
 
 function Comment(props) {
     const {comment} = props;
     const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setModalOpen(false); // 모달 닫기
+    };
+
 
     console.log(comment);
 
@@ -100,22 +110,12 @@ function Comment(props) {
                     12 comments
                 </TextStlye>
                 <AllComemntTextStlye
-                    onClick={() => {
-                        setModalOpen(true);
-                        console.log(modalOpen);
-                    }}>
+                    onClick={openModal}>
                     + View all
                 </AllComemntTextStlye>
                 {modalOpen &&
-                        <ModalCss onClick={()=>{
-                            setModalOpen(false);
-                        }}>
-                            <IoIosCloseCircle
-                            onClick={()=>{
-                                setModalOpen(false);
-                            }} 
-                            color="white" size={24}/>
-                            <CommentPage/>
+                        <ModalCss>
+                            <CommentPage closeModal={closeModal}/>
                         </ModalCss>}
             </TextBox>
             <CommentArray>
