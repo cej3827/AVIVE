@@ -3,28 +3,31 @@ import styled from 'styled-components';
 import { FaBell, FaBellSlash, FaCog, FaTimes } from 'react-icons/fa';
 
 const Button = styled.button`
-  display: inline-flex;
-  width: 180px;
-  height: 40px;
+  // margin-right: 100%;
+  display: flex;
+  width: 11rem;
+  height: 2.5rem;
   align-items: center;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding-left: 15%;
+  padding-top: 10%;
   border: 1px solid #ccc;
   border-radius: 25px;
   background-color: #fff;
   color: #606060;
   cursor: pointer;
   font-size: 15px;
-  position: relative;
+  margin-left: 100%;
+  // position: relative;
 `;
 
 const Text = styled.span`
-  margin-left: 20px;
-  margin-bottom: 18px;
+  margin-left: 10%;
+  margin-bottom: 1rem;
 `;
 
 const IconWrapper = styled.span`
-  display: inline-flex;
+  width: 100%;
+  display: flex;
   align-items: center;
   // border: 1px solid;
 `;
@@ -38,18 +41,20 @@ const BellSlashIcon = styled(FaBellSlash)`
 `;
 
 const DropdownWrapper = styled.div`
+  margin-left: 18.5%;
   position: absolute;
-  width: 160px;
+  width: 10rem;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 25px;
+  border-radius: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 8px;
+  padding: 0.5rem;
   display: ${(props) => (props.show ? 'block' : 'none')};
+  z-index: 10;
 `;
 
 const MenuItem = styled.div`
-  padding: 6px 12px;
+  padding: 0.4rem 0.9rem;
   cursor: pointer;
   font-size: 16px;
 
@@ -85,7 +90,8 @@ const SubscriptionButton = () => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    // <div style={{ position: 'relative' }}>
+    <div>
       <Button onClick={handleButtonClick}>
         <IconWrapper>
           {subscribed ? (notificationEnabled ? <BellIcon /> : <BellSlashIcon />) : ""}
