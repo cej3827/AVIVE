@@ -14,7 +14,7 @@ const Outer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,16 +71,14 @@ const SetIcon = styled(IoMdSettings)`
 const Wrapper = styled.div`
   
   /* Rectangle 59 */
-  display: flex;
-  flex-direction: column;
-  position: absolute;
+  position:absolute;
   width: 220.92px;
   height: 270px;
-  top: 60px;
-  left: 1380px;
-
+  margin-top: -25%;
+  margin-left: 76%;
   background: #FFFFFF;
   border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
@@ -157,6 +155,7 @@ const MenuText = styled.button`
   color: #000000;
   border: none;
   background-color: white;
+  cursor: pointer;
 
 `;
 
@@ -177,9 +176,10 @@ const LogoutBtn = styled.button`
   /* identical to box height */
   text-align: center;
 
-  color: #7d7d7d;
+  color: #ff1717;
   background-color: white;
   border: none;
+  cursor: pointer;
 `;
 
 

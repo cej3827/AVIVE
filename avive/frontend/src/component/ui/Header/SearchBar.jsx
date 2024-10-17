@@ -4,9 +4,10 @@ import styled from "styled-components";
 import { HiSearch } from "react-icons/hi";
 
 const SearchContainer = styled.div`
+  display: flex;
   width: 856px;
   height: 28px;
-  position: absolute;
+  position: relative;
   border-radius: 20px;
   background-color: #111154;
 
@@ -57,7 +58,7 @@ function SearchBar() {
             placeholder=" Let's Search ...!"
           />
           {/* search icon */}
-          <HiSearch color="#ffffff" size="28" type="submit" style={{padding:'auto 30% auto 70%'}}/>
+          <HiSearch color="#ffffff" size="28" type="submit" style={{padding:'auto 30% auto 70%', cursor:"pointer"}}/>
         </form>
 
         {/* elasticsearch mapping */}

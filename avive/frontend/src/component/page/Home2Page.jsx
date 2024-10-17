@@ -7,6 +7,21 @@ import CategoryList from "../list/CategoryList"
 import SearchBar from "../ui/Header/SearchBar";
 import { useNavigate } from "react-router-dom";
 
+const Wrapper = styled.div`
+  position:fixed;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+
+    body{
+    -ms-overflow-style: none;
+  }
+ 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`
+
 const SubscribeStyle = styled.div`
   margin-top:120px;
   margin-left:70px;
@@ -52,6 +67,7 @@ const Subtitle = styled.div`
    padding-top: 65px;
    background-color: white;
    border: none;
+   cursor: pointer;
  `;
 
  function Home2(){
@@ -60,9 +76,9 @@ const Subtitle = styled.div`
   const onClickToFull = () => {
     navigate('/Home2Full');
   };
-
+ 
    return(
-     <div style={{display:'flex', height: '100vh', flexDirection:'column'}}>
+     <Wrapper>
         <div style={{position:'fixed', display:'block', zIndex:'100', top:'0', width:'100%', background:'#ffffff'}}>
           <Header/>
         </div>
@@ -89,7 +105,7 @@ const Subtitle = styled.div`
           </RecommendedVideoList>
         </RecommendedStyle>
 
-     </div>
+     </Wrapper>
    );
  }
 

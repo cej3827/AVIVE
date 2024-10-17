@@ -15,12 +15,30 @@ import { HiPencil } from "react-icons/hi2";
 import { FaUserLock } from "react-icons/fa";
 import { FaRegBell } from "react-icons/fa6";
 
+const Wrapper = styled.div`
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* margin-top:120px;
+  margin-left:70px; */
+
+  body{
+    -ms-overflow-style: none;
+  }
+ 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const ProfileIcon = styled(IoPersonCircle)`
   width: 270px;
   height: 270px;
   border-radius: 50%;
   display: block;
-  margin: auto;
+  margin: 7% 46% auto auto;
   color: #111154;
   cursor: pointer;
 `;
@@ -28,12 +46,8 @@ const ProfileIcon = styled(IoPersonCircle)`
 const PencilIcon = styled(HiPencil)`
   width: 25px;
   height: 25px;
-
-  position: absolute;
-  left: 54%;
-  right: 41.95%;
-  top: 427px;
-  bottom: 43.39%;
+  position: relative;
+  margin: 2.5% 30% auto 50%;
   color: #8A8A8A;
   cursor: pointer;
 `;
@@ -71,14 +85,16 @@ const BellIcon = styled(FaRegBell)`
   white-space: nowrap;
 `;
 
+// 수정필요 : 텍스트가 중간에 위치하도록 (텍스트 길이가 늘어나면 끝부분에 추가만 되고 위치 그대로임)
 const Name = styled.div`
   /* ckthdud */
 
   position: absolute;
-  width: 293px;
+  width: 250px;
   height: 42px;
-  left: 780px;
-  top: 420px;
+  margin-top: 2%;
+  margin-left: 41%;
+  margin-right:45%;
 
   font-family: 'Jockey One';
   font-style: normal;
@@ -133,22 +149,22 @@ export default function Set() {
   };
 
   return (
-    <div>
+    <Wrapper>
       {/* header */}
-      <div style={{position:'fixed', display:'block', zIndex:'100', top:0, width:'100%', background:'#ffffff'}}>
+      <div>
         <Header2 />
-        <p style={{textAlign:'center', color:'gray', fontSize:'25px', marginTop:'70px'}}>setting</p>
+        {/* <p style={{textAlign:'center', color:'gray', fontSize:'25px', marginTop:'70px'}}>setting</p> */}
       </div>
 
       {/* contents 1 */}
-      <div style={{display:'grid',alignItems:'center' ,marginTop:'140px'}}>
+      <div>
         <ProfileIcon onClick={openImgModal} /> {/* 클릭 시 모달창 오픈 */}
         <div>
+          {/* Name 태그 : 추후에 DB 연결하면 로그인된 사용자 정보 읽어와야 됨 */}
           <Name>ckthdud</Name>
           <PencilIcon onClick={openNameModal}/>
         </div>
       </div>
-
 
       {/* contents 2 */}
       <MenuWrapper>
@@ -166,6 +182,6 @@ export default function Set() {
       {isImgModalOpen && <SetProfileImageModal closeModal={closeImgModal}/>}
       {isNameModalOpen && <SetNameModal closeNameModal={closeNameModal} />}
 
-    </div>
+    </Wrapper>
   );
 }

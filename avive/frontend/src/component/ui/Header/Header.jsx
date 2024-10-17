@@ -1,37 +1,43 @@
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import React, { useState } from 'react';
-import { BiSolidVideoPlus } from "react-icons/bi";
-import { MdNotifications } from "react-icons/md";
-import { BiSolidUserCircle } from "react-icons/bi";
-import SearchBar from "./SearchBar";
 import UploadModal from "../UploadModal";
 import NotificationListModal from "../NotificationListModal"
 import ProfileModal from "../ProfileModal";
+
+import { BiSolidVideoPlus } from "react-icons/bi";
+import { MdMargin, MdNotifications } from "react-icons/md";
+import { BiSolidUserCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const Wrapper = styled.header`
     position: fixed;
     width: 100%;
-    height: 120px;
+    height: 100px;
     padding-bottom: 20px;
     background-color: white;
-    z-index: 900;
+    z-index: 999;
     right: 0px;
     top: 0px;
-    // box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
-    // border-bottom-left-radius: 10px;
-    // border-bottom-right-radius: 10px;
 `;
 
 const Contents = styled.div`
     display: flex;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
+    width: 96%;
+    max-width: 92%;
+    height: 55px;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
 `;
+
+const EmptyBox = styled.div`
+    position:fixed;
+    width:10%;
+    height:45px;
+    z-index: 999;
+    background-color: white;
+`
 
 const Align = styled.div`
     display: flex;
@@ -48,7 +54,7 @@ const Container = styled.div`
     p {
         margin-bottom: 8px;
     }
-`
+`;
 
 const MainTitleText = styled.button`
     font-family: 'K2D';
@@ -64,10 +70,16 @@ const MainTitleText = styled.button`
     border: none;
 `;
 
+const SearchBar1 = styled(SearchBar)`
+    display: flex;
+    z-index: 9999;
+`;
+
 function Header() {
+
     const navigate = useNavigate();
 
-    const onClickToHome = () => {
+    const onClickToHome1 = () => {
         navigate('/Home1');
     };
 
@@ -76,6 +88,8 @@ function Header() {
     const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
     const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+
+    const outside = useRef();
     
     const openModal = () => {
         setIsModalOpen(true); // 모달 열기
@@ -102,12 +116,13 @@ function Header() {
     };
 
     return (
-        <Wrapper>
+        <Wrapper ref={outside} 
+        onClick={ (e) => { if(e.target == outside.current) setIsProfileModalOpen(false)} } >
             <Contents>
                 <Align></Align>
 
                 <Container>
-                    <MainTitleText onClick={onClickToHome}>
+                    <MainTitleText onClick={onClickToHome1}>
                         aVive
                     </MainTitleText>
                 </Container>
@@ -117,9 +132,8 @@ function Header() {
                     <MdNotifications className="icon" size="30" color="#111154" onClick={openNotificationModal}/>
                     <BiSolidUserCircle className="icon" size="30" color="#111154" onClick={openProfileModal}/>    
                 </Align>
-
-                <SearchBar style={{margin:'70%'}}/>
             </Contents>
+            <SearchBar1/>
             {isModalOpen && <UploadModal closeModal={closeModal} />}
             {isNotificationModalOpen && <NotificationListModal closeNotificationModal={closeNotificationModal}/> }
             {isProfileModalOpen  && <ProfileModal closeProfileModal={closeProfileModal}/>}

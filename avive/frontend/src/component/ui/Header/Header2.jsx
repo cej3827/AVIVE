@@ -12,10 +12,10 @@ import { useNavigate } from "react-router-dom";
 const Wrapper = styled.header`
     position: fixed;
     width: 100%;
-    height: 90px;
+    height: 80px;
     padding-bottom: 20px;
     background-color: white;
-    z-index: 9999;
+    z-index: 999;
     right: 0px;
     top: 0px;
 `;

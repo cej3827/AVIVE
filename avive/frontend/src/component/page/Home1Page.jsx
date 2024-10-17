@@ -77,7 +77,7 @@ function Home1(){
   return (
     <div>
       {/* HeaderMenu */}
-      <div style={{margin:'0% 50% auto 50%'}}>
+      <div style={{margin:'0% 50% auto 50%', alignItems:"center"}}>
         <Header3/>
       </div>
 
@@ -86,7 +86,7 @@ function Home1(){
         <LogoStyle>avive</LogoStyle>
       </div>
       
-      <div style={{top:'0px', margin:'25%'}}>
+      <div style={{top:'0px', margin:'25% 25% auto 25%'}}>
         <SearchBar/>
       </div>
 
