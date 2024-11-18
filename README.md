@@ -1,8 +1,8 @@
-<h1>목차</h1>
+## 목차
 - [프로젝트 소개](#프로젝트-소개)
 - [개발자 구성](#개발자-구성)
-- [System Architecture](#System-Architecture)
-- [DB ERD](#DB-ERD)
+- [System Architecture](#system-architecture)
+- [DB ERD](#db-erd)
 - [주요 기능](#주요-기능)
 
 ## 프로젝트 소개
