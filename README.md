@@ -6,13 +6,13 @@
 - [주요 기능](#주요-기능)
 
 ## 프로젝트 소개
-기본적으로는 다량의 데이터를 추천받는 방식이 아닌 사용자가 직접 영상을 검색하여 원하는 정보만 제공받는 데에 집중한 도파민 디톡스 동영상 시청 웹페이지입니다.
+기본적으로는 다량의 데이터를 추천받는 방식이 아닌 사용자가 직접 영상을 검색하여 원하는 정보만 제공받는 데에 집중한 도파민 디톡스 동영상 시청 웹페이지입니다.  
 
 ## System Architecture
-<img width="1013" alt="스크린샷 2024-11-12 오후 2 08 18" src="https://github.com/user-attachments/assets/0092bc0b-804e-485a-89a3-d7b7c20dd037">  
+<img width="1013" alt="스크린샷 2024-11-12 오후 2 08 18" src="https://github.com/user-attachments/assets/0092bc0b-804e-485a-89a3-d7b7c20dd037">    
 
 ## DB ERD
-<img width="1372" alt="스크린샷 2024-11-12 오후 2 12 38" src="https://github.com/user-attachments/assets/627fd659-68a2-431b-a434-c60bdcf0088b">  
+<img width="1372" alt="스크린샷 2024-11-12 오후 2 12 38" src="https://github.com/user-attachments/assets/627fd659-68a2-431b-a434-c60bdcf0088b">    
 
 ## 주요 기능
 - ### 영상 검색
